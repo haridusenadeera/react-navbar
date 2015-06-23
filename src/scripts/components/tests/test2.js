@@ -1,13 +1,11 @@
-var CheckLink = React.createClass({
-  render: function() {
-    // This takes any props passed to CheckLink and copies them to <a>
-    return <a {...this.props}>{'√ '}{this.props.children}</a>;
-  }
+/** @jsx React.DOM */
+
+var MyComponent = React.createClass({
+    render: function(){
+        return (
+            <a href ="http://www.google.com">Hello, {this.props.name}!</a>
+        );
+    }
 });
 
-React.render(
-  <CheckLink href="/checked.html">
-    Click here!
-  </CheckLink>,
-  document.getElementById('content')
-);
+React.render(<MyComponent name="there" />, document.getElementById('myDiv'));
