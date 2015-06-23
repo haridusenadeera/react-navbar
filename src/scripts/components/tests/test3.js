@@ -13,14 +13,15 @@ var Counter = React.createClass({
   },
   getInitialState: function(){
      return {
-       count: 10
+       count: 0
      }
   },
   render: function(){
     return (
-      <div class="my-component">
+      <div className ="counter">
         <h1>Count: {this.state.count}</h1>
         <button type="button" onClick={this.incrementCount}>IncrementCount</button>
+
         <button type="button" onClick={this.decrementCount}>DecrementCount</button>
       </div>
     );
