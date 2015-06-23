@@ -6,7 +6,7 @@ body {
 .counter {
   width: 300px;
   margin: auto;
-  background: #9b59b6;
+  background: #81BEF7;
   color: white;
   padding: 20px;
   text-align: center;
@@ -17,13 +17,13 @@ body {
   font-size: 36px;
 }
 .counter button {
-  background: #f1c40f;
-  border: 0;
-  box-shadow: 0px 5px 0px #927608;
+  background: #0080FF;
+  border: 1;
+  box-shadow: 0px 5px 0px #01DFD7;
   padding: 20px;
   width: 100%;
   outline: none;
   border-radius: 3px;
-  color: #703688;
+  color: #DBA901;
   font-weight: bold;
 }
