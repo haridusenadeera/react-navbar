@@ -1,8 +1,10 @@
-/** @jsx React.DOM */
-
-class HelloMessage extends React.Component {
-  render() {
-    return <div>Hello {this.props.name}</div>;
-  }
+class ExampleComponent extends React.Component {
+ render() { 
+  return <div onClick={this._handleClick}>Hello, world.</div>;
+ }
+ _handleClick() {
+  console.log(this);
+ }
 }
-React.render(<HelloMessage name="Sebastian" />, document.getElementById('myDiv'));
+
+React.render(<ExampleComponent />, document.getElementById('content'));
