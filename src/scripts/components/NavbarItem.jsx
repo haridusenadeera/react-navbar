@@ -5,13 +5,15 @@ export default class NavbarItem extends React.Component {
 	
 	render() {
 		return (
-             <ul className="nav navbar-nav">
-                        {
-                            this.props.children.map(child => {
-                                   return  <li>{child}</li>
-                            })
-                        }
-             </ul>
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav">
+                            {
+                                this.props.children.map(child => {
+                                       return  <li>{child}</li>
+                                })
+                            }
+                </ul>
+            </div>
         )
 	}
 }

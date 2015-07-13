@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 import Navbar from './components/Navbar';
 import Item from './components/Item';
 import NavbarHeader from './components/NavbarHeader';
@@ -55,7 +56,7 @@ const navbarInstance2 = (
                 }
 
 			</NavbarItem>
-			<NavbarSearch />
+			
 		</Navbar>
 );
 
@@ -107,7 +108,7 @@ const navbarInstance4 = (
                     })
                 }
 			</NavbarItem>
-			<NavbarSearch />
+			
 		</Navbar>
 );
 
