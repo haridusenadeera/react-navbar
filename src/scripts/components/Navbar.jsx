@@ -2,17 +2,17 @@
 import React from 'react';
 import Radium from 'radium';
 
+@Radium
 export default class Navbar extends React.Component {
+  displayName = 'Navigation bar parent'
 
-  render(){
+  render() {
     return (
-      
-          <nav className="navbar navbar-default" style={styles.navbarDefault} role="navigation">
-            <div className="container-fluid">
-              {this.props.children}
-            </div>
-          </nav>
-      
+      <nav className="navbar navbar-default" role="navigation">
+        <div className="container-fluid">
+          {this.props.children}
+        </div>
+      </nav>
     );
   }
 }
@@ -24,7 +24,3 @@ var styles ={
     borderColor: "#e7e7e7"
   },
 }; 
-
-
-
-
