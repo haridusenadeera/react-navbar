@@ -22,7 +22,7 @@ module.exports = {
         test: /\.jsx?$/,
 
         // use babel loader with Stage 1 features
-        loader: 'babel?stage=1',
+        loader: 'babel?stage=0',
 
         // operate only on our app directory
         include: path.join(__dirname, 'src')
