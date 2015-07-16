@@ -1,11 +1,17 @@
 .navbar-nav {
   margin: 7.5px -15px;
 }
+
+/*
+included in Item component
+
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
 }
+*/
+
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
@@ -36,9 +42,9 @@
   }
   .navbar-nav > li {
     float: left;
-  }
+  } /*Included in Item component
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px;
-  }
+  }*/
 }
