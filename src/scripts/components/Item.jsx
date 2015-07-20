@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 
 @Radium
-export class Item extends React.Component {
+export default class Item extends React.Component {
     displayName = 'A fluid container'
     getStyles = () => {
       return {
@@ -20,9 +20,8 @@ export class Item extends React.Component {
                 ':focus': {
                     color: '#333',
                     backgroundColor: 'transparent'
-                }
-            },
-            fixed: {
+                },
+
                 '@media (min-width: 768px)': {
                     paddingTop: '15px',
                     paddingBottom: '15px'
@@ -32,9 +31,10 @@ export class Item extends React.Component {
     }
     render() {
       const defStyle = this.getStyles();
+      const {link, title} = this.props;
       return (
-            <a style= {[defStyle.base, defStyle.fixed]} href={this.props.link}>
-                {this.props.title}
+            <a style= {[defStyle.base]} href={link}>
+                {title}
             </a>
         );
     }
