@@ -3,7 +3,7 @@ import Radium from 'radium';
 
 @Radium
 export default class Item extends React.Component {
-    displayName = 'A fluid container'
+    displayName = 'Navigation bar item link'
     getStyles = () => {
       return {
             base: {
