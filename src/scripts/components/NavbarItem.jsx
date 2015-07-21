@@ -3,19 +3,18 @@ import Radium from 'radium';
 
 @Radium
 export default class NavbarItem extends React.Component {
-    displayName = 'Navigation bar item list'
+    displayName = 'Navigation list of items'
     getStyles = () => {
       return {
             base: {
-                display: 'block',
                 margin: '7.5px -15px',
-                listStyle: 'none',
+                listStyle: 'outside none none',
                 paddingLeft: '0',
                 boxSizing: 'border-box',
 
-                ':li': {
-                    cssFloat: 'left'
-                },
+                fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
+                fontSize: '14px',
+                color: '#333',
 
                 '@media (min-width: 768px)': {
                     cssFloat: 'left',
@@ -23,17 +22,20 @@ export default class NavbarItem extends React.Component {
                 }
             },
             list: {
-                cssFloat: 'left'
+                float: 'left',
+                position: 'relative',
+                display: 'block',
+                boxSizing: 'border-box'
             }
         };
     }
     render() {
       const defStyle = this.getStyles();
       return (
-                <ul className="nav navbar-nav">
+                <ul style= {[defStyle.base]}>
                             {
                                 this.props.children.map(child => {
-                                return <li>{child}</li>; })
+                                return <li style= {[defStyle.list]}>{child}</li>; })
                             }
                 </ul>
         );
