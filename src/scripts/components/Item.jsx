@@ -7,10 +7,14 @@ export default class Item extends React.Component {
     getStyles = () => {
       return {
             base: {
-                paddingTop: '10px',
-                paddingBottom: '10px',
+                padding: '10px 15px',
                 lineHeight: '20px',
                 color: '#777',
+                position: 'relative',
+                display: 'block',
+                textDecoration: 'none',
+                backgroundColor: 'transparent',
+                boxSizing: 'border-box',
 
                 ':hover': {
                     color: '#333',
