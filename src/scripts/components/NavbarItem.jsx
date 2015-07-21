@@ -35,7 +35,10 @@ export default class NavbarItem extends React.Component {
                 <ul style= {[defStyle.base]}>
                             {
                                 this.props.children.map(child => {
-                                return <li style= {[defStyle.list]}>{child}</li>; })
+                                  return (<li
+                                    key={this.props.children.indexOf(child)}
+                                    style= {[defStyle.list]}>{child}
+                                </li>); })
                             }
                 </ul>
         );
