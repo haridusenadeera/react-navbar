@@ -4,85 +4,97 @@ import Item from './components/Item';
 import NavbarHeader from './components/NavbarHeader';
 import NavbarItem from './components/NavbarItem';
 
+
 /** ~~~ Navigation 1 ~~~~ */
 const navitems = [
-	{id: 0,	link: '#',	title: 'Learn ES2015'},
-	{id: 1,	link: '#', 	title: 'Setup'},
-	{id: 2,	link: '#', 	title: 'Usage'},
-	{id: 3,	link: '#', 	title: 'Advanced'},
-	{id: 4,	link: '#', 	title: 'Try it out'},
-	{id: 5,	link: '#', 	title: 'FAQ'}
+    {link: '#', title: 'Learn ES2015'},
+    {link: '#', title: 'Setup'},
+    {link: '#', title: 'Usage'},
+    {link: '#', title: 'Advanced'},
+    {link: '#', title: 'Try it out'},
+    {link: '#', title: 'FAQ'}
 ];
 
-
 const navbarInstance = (
-	<Navbar>
-		<NavbarHeader href="http://www.google.com" name="Babel"/>
-			<NavbarItem >
-				{navitems.map(item => {
-					return <Item key={item.id} link={item.link} title={item.title} />; })}
+    <Navbar>
+        <NavbarHeader href="http://www.google.com" name="Babel"/>
+            <NavbarItem>
+              {
+                navitems.map(item => {
+                  return <Item link={item.link} title={item.title} />;
+                })
+              }
             </NavbarItem>
     </Navbar>
 );
 
 /** ~~~ Navigation 2 ~~~~ */
 const navitems2 = [
-	{id: 0,	link: '#',	title: 'Homepage'},
-	{id: 1,	link: '#', 	title: 'Contact'},
-	{id: 2,	link: '#', 	title: 'Northwestern'},
-	{id: 3,	link: '#', 	title: 'About'},
-	{id: 4,	link: '#', 	title: 'See more'},
-	{id: 5,	link: '#', 	title: 'NUCATS'}
+    {link: '#', title: 'Homepage'},
+    {link: '#', title: 'Contact'},
+    {link: '#', title: 'Northwestern'},
+    {link: '#', title: 'About'},
+    {link: '#', title: 'See more'},
+    {link: '#', title: 'NUCATS'}
 ];
 
 
 const navbarInstance2 = (
-	<Navbar>
-		<NavbarHeader href="http://www.google.com" name="Babel"/>
-			<NavbarItem >
-				{navitems2.map(item => {
-					return <Item key={item.id} link={item.link} title={item.title} />; })}
+    <Navbar>
+        <NavbarHeader href="http://www.google.com" name="Babel"/>
+            <NavbarItem >
+              {
+                navitems2.map(item => {
+                  return <Item key={item.id} link={item.link} title={item.title} />;
+                })
+              }
             </NavbarItem>
     </Navbar>
 );
 
 /** ~~~ Navigation 3 ~~~~ */
 const navitems3 = [
-	{id: 0,	link: '#',	title: 'GIT'},
-	{id: 1,	link: '#', 	title: 'Usage'},
-	{id: 2,	link: '#', 	title: 'About Us'},
-	{id: 3,	link: '#', 	title: 'More Info'},
-	{id: 4,	link: '#', 	title: 'New Features'},
-	{id: 5,	link: '#', 	title: 'Contact'}
+    {link: '#', title: 'GIT'},
+    {link: '#', title: 'Usage'},
+    {link: '#', title: 'About Us'},
+    {link: '#', title: 'More Info'},
+    {link: '#', title: 'New Features'},
+    {link: '#', title: 'Contact'}
 ];
 
 const navbarInstance3 = (
-	<Navbar>
-		<NavbarHeader href="http://www.google.com" name="Babel"/>
-			<NavbarItem >
-				{navitems3.map(item => {
-					return <Item key={item.id} link={item.link} title={item.title} />; })}
+    <Navbar>
+        <NavbarHeader href="http://www.google.com" name="Babel"/>
+            <NavbarItem >
+              {
+                navitems3.map(item => {
+                  return <Item key={item.id} link={item.link} title={item.title} />;
+                })
+              }
             </NavbarItem>
     </Navbar>
 );
 
 /** ~~~ Navigation 4 ~~~~ */
 const navitems4 = [
-	{id: 0,	link: '#',	title: 'Learn ES2015'},
-	{id: 1,	link: '#', 	title: 'Setup'},
-	{id: 2,	link: '#', 	title: 'Usage'},
-	{id: 3,	link: '#', 	title: 'Advanced'},
-	{id: 4,	link: '#', 	title: 'Try it out'},
-	{id: 5,	link: '#', 	title: 'FAQ'}
+    {link: '#', title: 'Learn ES2015'},
+    {link: '#', title: 'Setup'},
+    {link: '#', title: 'Usage'},
+    {link: '#', title: 'Advanced'},
+    {link: '#', title: 'Try it out'},
+    {link: '#', title: 'FAQ'}
 ];
 
 
 const navbarInstance4 = (
-	<Navbar>
-		<NavbarHeader href="http://www.google.com" name="Babel"/>
-			<NavbarItem >
-				{navitems4.map(item => {
-					return <Item key={item.id} link={item.link} title={item.title} />; })}
+    <Navbar>
+        <NavbarHeader href="http://www.google.com" name="Babel"/>
+            <NavbarItem >
+                {
+                  navitems4.map(item => {
+                    return <Item key={item.id} link={item.link} title={item.title} />;
+                  })
+                }
             </NavbarItem>
     </Navbar>
 );
