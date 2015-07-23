@@ -37,12 +37,12 @@ included in Item component
     background-image: none;
   }
 }
+/* included in NavbarItem component
 @media (min-width: 768px) {
   .navbar-nav {
     float: left;
     margin: 0;
   }
-  /* included in NavbarItem component
   .navbar-nav > li {
     float: left;
   */

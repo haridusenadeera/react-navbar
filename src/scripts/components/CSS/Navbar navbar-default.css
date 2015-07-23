@@ -2,11 +2,11 @@
  .navbar {
     display: none;
   }
-
+/* included in Navbar component
   .navbar-default {
   background-color: #f8f8f8;
   border-color: #e7e7e7;
-}
+}*/
 
 /* included in NavbarHeader component
 .navbar-default .navbar-brand {
