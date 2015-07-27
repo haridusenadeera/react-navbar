@@ -35,11 +35,11 @@ export default class Navbar extends React.Component {
     render() {
       const defStyle = this.getStyles();
       return (
-          <nav style= {[defStyle.navbar]}>
-            <div style= {[defStyle.container]}>
-              {this.props.children}
-            </div>
+          <nav className="navbar navbar-default">
+              <div className="container-fluid">
+                  {this.props.children}
+              </div>
           </nav>
-        );
+      );
     }
 }

@@ -6,7 +6,7 @@ export default class NavbarHeader extends React.Component {
     displayName = 'Navigation bar header'
     getStyles = () => {
       return {
-            base: {
+            header: {
                 float: 'left',
                 marginRight: '0px',
                 marginLeft: '0px',
@@ -46,9 +46,9 @@ export default class NavbarHeader extends React.Component {
       const defStyle = this.getStyles();
       const {href, name} = this.props;
       return (
-        <div style= {[defStyle.base]}>
-            <a style= {[defStyle.brand]} href={href}>{name}</a>
-        </div>
-        );
+          <div className="navbar-header">
+              <a className="navbar-brand" href={href}>{name}</a>
+          </div>
+      );
     }
 }

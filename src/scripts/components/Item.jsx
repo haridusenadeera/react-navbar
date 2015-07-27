@@ -3,7 +3,7 @@ import Radium from 'radium';
 
 @Radium
 export default class Item extends React.Component {
-    displayName = 'Navigation bar item link'
+    displayName = 'Navigation bar item'
 
     static propTypes = {
         style: React.PropTypes.object
@@ -11,7 +11,13 @@ export default class Item extends React.Component {
 
     getStyles = () => {
       return {
-          base: {
+          list: {
+              float: 'left',
+              position: 'relative',
+              display: 'block',
+              boxSizing: 'border-box'
+          },
+          link: {
               padding: '10px 15px',
               lineHeight: '20px',
               color: '#777',
@@ -41,11 +47,13 @@ export default class Item extends React.Component {
 
     render() {
       const defStyle = this.getStyles();
-      const {link, title, style} = this.props;
+      const {style, link, title} = this.props;
       return (
-          <a style= {[defStyle.base, style && style]} href={link}>
-              {title}
-          </a>
-        );
+          <li>
+              <a href={link}>
+                  {title}
+              </a>
+          </li>
+      );
     }
 }
