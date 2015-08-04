@@ -21,7 +21,7 @@ const navbarInstance = (
             <NavbarItem>
               {
                 navitems.map(item => {
-                  return <Item link={item.link} title={item.title} />;
+                  return <Item key={navitems.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
             </NavbarItem>
@@ -45,7 +45,7 @@ const navbarInstance2 = (
             <NavbarItem >
               {
                 navitems2.map(item => {
-                  return <Item key={item.id} link={item.link} title={item.title} />;
+                  return <Item key={navitems2.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
             </NavbarItem>
@@ -68,7 +68,7 @@ const navbarInstance3 = (
             <NavbarItem >
               {
                 navitems3.map(item => {
-                  return <Item key={item.id} link={item.link} title={item.title} />;
+                  return <Item key={navitems3.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
             </NavbarItem>
@@ -90,11 +90,11 @@ const navbarInstance4 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
             <NavbarItem >
-                {
-                  navitems4.map(item => {
-                    return <Item key={item.id} link={item.link} title={item.title} />;
-                  })
-                }
+              {
+                navitems4.map(item => {
+                  return <Item key={navitems4.indexOf(item)} link={item.link} title={item.title} />;
+                })
+              }
             </NavbarItem>
     </Navbar>
 );
