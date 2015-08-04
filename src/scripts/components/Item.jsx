@@ -6,26 +6,31 @@ export default class Item extends React.Component {
     displayName = 'Navigation bar item'
 
     static propTypes = {
-        style: React.PropTypes.object
+        liStyle: React.PropTypes.object,
+        aStyle: React.PropTypes.object
     }
 
     getStyles = () => {
       return {
           list: {
-              float: 'left',
               position: 'relative',
               display: 'block',
-              boxSizing: 'border-box'
+              boxSizing: 'border-box',
+              height: '40px',
+
+              '@media (min-width: 768px)': {
+                  float: 'left'
+              }
           },
           link: {
               padding: '10px 15px',
               lineHeight: '20px',
-              color: '#777',
               position: 'relative',
               display: 'block',
-              textDecoration: 'none',
-              backgroundColor: 'transparent',
               boxSizing: 'border-box',
+              textDecoration: 'none',
+              color: '#777',
+              backgroundColor: 'transparent',
 
               ':hover': {
                   color: '#333',
@@ -47,10 +52,10 @@ export default class Item extends React.Component {
 
     render() {
       const defStyle = this.getStyles();
-      const {style, link, title} = this.props;
+      const {aStyle, liStyle, link, title} = this.props;
       return (
-          <li>
-              <a href={link}>
+          <li key="list" style={[defStyle.list, liStyle && liStyle]}>
+              <a key ="link"style ={[defStyle.link, aStyle && aStyle]} href={link}>
                   {title}
               </a>
           </li>

@@ -4,36 +4,45 @@ import Radium from 'radium';
 @Radium
 export default class NavbarHeader extends React.Component {
     displayName = 'Navigation bar header'
+
+    static propTypes = {
+        headerStyle: React.PropTypes.object,
+        brandStyle: React.PropTypes.object
+    }
+
     getStyles = () => {
       return {
             header: {
-                float: 'left',
-                marginRight: '0px',
-                marginLeft: '0px',
-                boxSizing: 'border-box'
+                marginRight: '-15px',
+                marginLeft: '-15px',
+                boxSizing: 'border-box',
+                display: 'table',
+
+                '@media (min-width: 768px)': {
+                    float: 'left',
+                    marginRight: '0',
+                    marginLeft: '0'
+                }
             },
             brand: {
-                color: '#777',
                 float: 'left',
                 height: '50px',
                 padding: '15px 15px',
-                fontSize: '18px',
                 lineHeight: '20px',
                 textDecoration: 'none',
                 backgroundColor: 'transparent',
                 boxSizing: 'border-box',
+
+                fontSize: '18px',
+                color: '#777',
                 fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
 
                 ':hover': {
-                    textDecoration: 'none',
-                    color: '#5e5e5e',
-                    backgroundColor: 'transparent'
+                    color: '#5e5e5e'
                 },
 
                 ':focus': {
-                    textDecoration: 'none',
-                    color: '#5e5e5e',
-                    backgroundColor: 'transparent'
+                    color: '#5e5e5e'
                 },
 
                 '@media (min-width: 768px)': {
@@ -44,10 +53,12 @@ export default class NavbarHeader extends React.Component {
     }
     render() {
       const defStyle = this.getStyles();
-      const {href, name} = this.props;
+      const {href, name, headerStyle, brandStyle} = this.props;
       return (
-          <div className="navbar-header">
-              <a className="navbar-brand" href={href}>{name}</a>
+          <div key="header" style={[defStyle.header, headerStyle && headerStyle]}>
+              <a key="brand" style={[defStyle.brand, brandStyle && brandStyle]} href={href}>
+                  {name}
+              </a>
           </div>
       );
     }

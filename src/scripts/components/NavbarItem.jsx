@@ -4,11 +4,16 @@ import Radium from 'radium';
 @Radium
 export default class NavbarItem extends React.Component {
     displayName = 'Navigation list of items'
+
+    static propTypes = {
+        style: React.PropTypes.object
+    }
+
     getStyles = () => {
       return {
           base: {
               margin: '7.5px -15px',
-              listStyle: 'outside none none',
+              listStyle: 'none',
               paddingLeft: '0',
               boxSizing: 'border-box',
 
@@ -19,13 +24,6 @@ export default class NavbarItem extends React.Component {
               '@media (min-width: 768px)': {
                   float: 'left',
                   margin: '0'
-              },
-
-              li: {
-                  float: 'left',
-                  position: 'relative',
-                  display: 'block',
-                  boxSizing: 'border-box'
               }
           }
       };
@@ -36,7 +34,7 @@ export default class NavbarItem extends React.Component {
       const {style, children} = this.props;
       return (
           <div>
-              <ul className="nav navbar-nav">
+              <ul style={[defStyle.base, style && style]}>
                   {children}
               </ul>
           </div>
