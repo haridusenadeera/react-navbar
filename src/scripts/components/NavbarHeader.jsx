@@ -1,18 +1,65 @@
 import React from 'react';
+import Radium from 'radium';
 
+@Radium
 export default class NavbarHeader extends React.Component {
-	
-	render() {
-		return (
-			<div className="navbar-header">
-				 <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span className="sr-only">Toggle navigation</span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                </button>
-				<a className="navbar-brand" href={this.props.href}>{this.props.name}</a>
-			</div>
-		)
-	}
+    displayName = 'Navigation bar header'
+
+    static propTypes = {
+        headerStyle: React.PropTypes.object,
+        brandStyle: React.PropTypes.object
+    }
+
+    getStyles = () => {
+      return {
+            header: {
+                marginRight: '-15px',
+                marginLeft: '-15px',
+                boxSizing: 'border-box',
+                display: 'table',
+
+                '@media (min-width: 768px)': {
+                    float: 'left',
+                    marginRight: '0',
+                    marginLeft: '0'
+                }
+            },
+            brand: {
+                float: 'left',
+                height: '50px',
+                padding: '15px 15px',
+                lineHeight: '20px',
+                textDecoration: 'none',
+                backgroundColor: 'transparent',
+                boxSizing: 'border-box',
+
+                fontSize: '18px',
+                color: '#777',
+                fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
+
+                ':hover': {
+                    color: '#5e5e5e'
+                },
+
+                ':focus': {
+                    color: '#5e5e5e'
+                },
+
+                '@media (min-width: 768px)': {
+                    marginLeft: '-15px'
+                }
+            }
+        };
+    }
+    render() {
+      const defStyle = this.getStyles();
+      const {href, name, headerStyle, brandStyle} = this.props;
+      return (
+          <div key="header" style={[defStyle.header, headerStyle && headerStyle]}>
+              <a key="brand" style={[defStyle.brand, brandStyle && brandStyle]} href={href}>
+                  {name}
+              </a>
+          </div>
+      );
+    }
 }

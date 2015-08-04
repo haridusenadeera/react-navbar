@@ -1,11 +1,11 @@
 var path = require('path');
 
 module.exports = {
-  devtool: "source-map",
+  devtool: 'source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/dev-server',
-    path.join(__dirname, 'src/scripts/app.jsx'),
+    path.join(__dirname, 'src/scripts/app.jsx')
   ],
   output: {
     path: path.join(__dirname, 'build'),
@@ -13,7 +13,7 @@ module.exports = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx']
   },
   module: {
     loaders: [
@@ -22,11 +22,11 @@ module.exports = {
         test: /\.jsx?$/,
 
         // use babel loader with Stage 1 features
-        loader: 'babel?stage=1',
+        loader: 'babel?stage=0',
 
         // operate only on our app directory
-        include: path.join(__dirname, 'src'),
-      },
+        include: path.join(__dirname, 'src')
+      }
     ]
   }
 
