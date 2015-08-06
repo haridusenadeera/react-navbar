@@ -34,7 +34,7 @@ export default class NavbarItem extends React.Component {
       const {style, children} = this.props;
       return (
           <div>
-              <ul style={[defStyle.base, style && style]}>
+              <ul className="nav navbar-nav" style={[defStyle.base, style && style]}>
                   {children}
               </ul>
           </div>

@@ -3,7 +3,8 @@ import Navbar from './components/Navbar';
 import Item from './components/Item';
 import NavbarHeader from './components/NavbarHeader';
 import NavbarItem from './components/NavbarItem';
-
+import DropdownButton from './components/DropdownButton';
+import MenuItem from './components/MenuItem';
 
 /** ~~~ Navigation 1 ~~~~ */
 const navitems = [
@@ -90,11 +91,17 @@ const navbarInstance4 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
             <NavbarItem >
-              {
-                navitems4.map(item => {
-                  return <Item key={navitems4.indexOf(item)} link={item.link} title={item.title} />;
-                })
-              }
+                <Item link="#" title="Home" />
+                <Item link="#" title="About" />
+                <Item link="#" title="Contact" />
+                <Item link="#" title="More Info" />
+                <DropdownButton navItem="TRUE" title="Dropdown">
+                    <MenuItem eventKey="1">Action</MenuItem>
+                    <MenuItem eventKey="2">Another action</MenuItem>
+                    <MenuItem eventKey="3">Something else here</MenuItem>
+                    <MenuItem divider />
+                    <MenuItem eventKey="4">Separated link</MenuItem>
+                </DropdownButton>
             </NavbarItem>
     </Navbar>
 );
