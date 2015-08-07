@@ -6,7 +6,8 @@ export default class NavbarItems extends React.Component {
     displayName = 'Navigation list of items'
 
     static propTypes = {
-        style: React.PropTypes.object
+        style:    React.PropTypes.object,
+        children: React.PropTypes.node
     }
 
     getStyles = () => {

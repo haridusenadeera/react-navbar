@@ -7,7 +7,8 @@ export default class Navbar extends React.Component {
 
     static propTypes = {
         navStyle:  React.PropTypes.object,
-        contStyle: React.PropTypes.object
+        contStyle: React.PropTypes.object,
+        children:  React.PropTypes.node
     }
 
     getStyles = () => {
