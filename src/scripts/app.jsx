@@ -3,6 +3,8 @@ import Navbar from './components/Navbar';
 import Item from './components/Item';
 import NavbarHeader from './components/NavbarHeader';
 import NavbarItems from './components/NavbarItems';
+import NavbarDropdown from './components/NavbarDropdown';
+import DropdownMenu from './components/DropdownMenu';
 
 /** ~~~ Navigation 1 ~~~~ */
 const navitems = [
@@ -84,6 +86,15 @@ const navitems4 = [
     {link: '#', title: 'FAQ'}
 ];
 
+const dropdownItems = [
+    {href: '#', name: 'ES2015'},
+    {href: '#', name: 'Setup'},
+    {href: '#', name: 'Usage'},
+    {href: '#', name: 'Advanced'},
+    {href: '#', name: 'Try it'},
+    {href: '#', name: 'FAQ'}
+];
+
 
 const navbarInstance4 = (
     <Navbar>
@@ -94,6 +105,9 @@ const navbarInstance4 = (
                   return <Item key={navitems4.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
+              <NavbarDropdown displayName="Dropdown">
+                  <DropdownMenu menuItems={dropdownItems}/>
+              </NavbarDropdown>
             </NavbarItems>
     </Navbar>
 );
