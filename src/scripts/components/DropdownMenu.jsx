@@ -4,7 +4,7 @@ export default class DropdownMenu extends React.Component {
     displayName = 'Dropdown menu items'
 
     static propTypes = {
-        menuItems: React.PropTypes.object
+        menuItems: React.PropTypes.array
     }
 
     render() {
@@ -12,7 +12,7 @@ export default class DropdownMenu extends React.Component {
         <ul className="dropdown-menu">
           {
             this.props.menuItems.map(item => {
-              return <li><a href={item.href}>{item.name}</a></li>;
+              return <li key={item.name}><a href={item.href}>{item.name}</a></li>;
             })
           }
         </ul>
