@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Item from './components/Item';
 import NavbarHeader from './components/NavbarHeader';
-import NavbarItem from './components/NavbarItem';
+import NavbarItems from './components/NavbarItems';
 
 /** ~~~ Navigation 1 ~~~~ */
 const navitems = [
@@ -17,13 +17,13 @@ const navitems = [
 const navbarInstance = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-            <NavbarItem>
+            <NavbarItems>
               {
                 navitems.map(item => {
                   return <Item key={navitems.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-            </NavbarItem>
+            </NavbarItems>
     </Navbar>
 );
 
@@ -41,13 +41,13 @@ const navitems2 = [
 const navbarInstance2 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-            <NavbarItem >
+            <NavbarItems>
               {
                 navitems2.map(item => {
                   return <Item key={navitems2.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-            </NavbarItem>
+            </NavbarItems>
     </Navbar>
 );
 
@@ -64,13 +64,13 @@ const navitems3 = [
 const navbarInstance3 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-            <NavbarItem >
+            <NavbarItems>
               {
                 navitems3.map(item => {
                   return <Item key={navitems3.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-            </NavbarItem>
+            </NavbarItems>
     </Navbar>
 );
 
@@ -88,13 +88,13 @@ const navitems4 = [
 const navbarInstance4 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-            <NavbarItem >
+            <NavbarItems>
               {
                 navitems4.map(item => {
                   return <Item key={navitems4.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-            </NavbarItem>
+            </NavbarItems>
     </Navbar>
 );
 
