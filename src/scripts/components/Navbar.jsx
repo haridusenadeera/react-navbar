@@ -6,7 +6,7 @@ export default class Navbar extends React.Component {
     displayName = 'Navigation bar'
 
     static propTypes = {
-        navStyle: React.PropTypes.object,
+        navStyle:  React.PropTypes.object,
         contStyle: React.PropTypes.object
     }
 
@@ -39,8 +39,8 @@ export default class Navbar extends React.Component {
       const defStyle = this.getStyles();
       const {navStyle, contStyle, children} = this.props;
       return (
-          <nav className="navbar navbar-default" style={[defStyle.navbar, navStyle && navStyle]}>
-              <div className="container-fluid" style={[defStyle.container, contStyle && contStyle]}>
+          <nav style={[defStyle.navbar, navStyle && navStyle]}>
+              <div style={[defStyle.container, contStyle && contStyle]}>
                   {children}
               </div>
           </nav>

@@ -6,8 +6,10 @@ export default class Item extends React.Component {
     displayName = 'Navigation bar item'
 
     static propTypes = {
+        link:    React.PropTypes.string,
+        title:   React.PropTypes.string,
         liStyle: React.PropTypes.object,
-        aStyle: React.PropTypes.object
+        aStyle:  React.PropTypes.object
     }
 
     getStyles = () => {

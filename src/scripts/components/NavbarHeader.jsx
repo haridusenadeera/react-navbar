@@ -6,8 +6,10 @@ export default class NavbarHeader extends React.Component {
     displayName = 'Navigation bar header'
 
     static propTypes = {
+        href:        React.PropTypes.string,
+        name:        React.PropTypes.string,
         headerStyle: React.PropTypes.object,
-        brandStyle: React.PropTypes.object
+        brandStyle:  React.PropTypes.object
     }
 
     getStyles = () => {
