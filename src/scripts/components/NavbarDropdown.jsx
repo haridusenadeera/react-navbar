@@ -13,8 +13,8 @@ export default class NavbarDropdown extends React.Component {
       return (
         <li className="dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {displayName}
-            <span className="caret"></span>
+                {displayName}
+                <span className="caret"></span>
             </a>
             {children}
         </li>
