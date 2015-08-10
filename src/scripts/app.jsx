@@ -105,7 +105,7 @@ const navbarInstance4 = (
                   return <Item key={navitems4.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-              <NavbarDropdown displayName="Dropdown">
+              <NavbarDropdown name="Dropdown">
                   <DropdownMenu menuItems={dropdownItems}/>
               </NavbarDropdown>
             </NavbarItems>
