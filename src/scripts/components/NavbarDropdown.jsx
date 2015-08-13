@@ -12,13 +12,36 @@ export default class NavbarDropdown extends React.Component {
     getStyles = () => {
       return {
           dropdown: {
-              
+            position: 'relative',
+            display: 'block',
+
+            '@media (min-width: 768px)': {
+                float: 'left'
+            }
           },
           name: {
+              padding: '10px 15px',
+              lineHeight: '20px',
               position: 'relative',
               display: 'block',
-              padding: '10px 15px',
-              textDecoration: 'none'
+              textDecoration: 'none',
+              color: '#777',
+              backgroundColor: 'transparent',
+
+              ':hover': {
+                  color: '#333',
+                  backgroundColor: 'transparent'
+              },
+
+              ':focus': {
+                  color: '#333',
+                  backgroundColor: 'transparent'
+              },
+
+              '@media (min-width: 768px)': {
+                  paddingTop: '15px',
+                  paddingBottom: '15px'
+              }
           },
           caret: {
               display: 'inline-block',
@@ -37,10 +60,10 @@ export default class NavbarDropdown extends React.Component {
       const {name, children} = this.props;
       const defStyle = this.getStyles();
       return (
-        <li style={[defStyle.dropdown]}>
-            <a href="#" style={[defStyle.name]} data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                {name}
-                <span style={[defStyle.caret]}></span>
+        <li key="dropdown" style={[defStyle.dropdown]}>
+            <a key="name" href="#" style={[defStyle.name]} data-toggle="dropdown">
+                {name}&nbsp;
+                <b style={[defStyle.caret]}></b>
             </a>
             {children}
         </li>

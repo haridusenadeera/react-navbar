@@ -19,16 +19,17 @@ export default class DropdownMenu extends React.Component {
               display: 'block',
               float: 'left',
               minWidth: '160px',
+              marginTop: '0px',
               padding: '5px 0',
-              margin: '0px',
               fontSize: '14px',
               textAlign: 'left',
               listStyle: 'none',
               backgroundColor: '#fff',
               backgroundClip: 'padding-box',
               border: '1px solid #ccc',
-              borderRadius: '4px',
-              boxShadow: '0 6px 12px rgba(0, 0, 0, .175)'
+              borderBottomLeftRadius: '4px',
+              borderBottomRightRadius: '4px',
+              boxShadow: '0 6px 12px #C9C9C9'
           },
           link: {
               display: 'block',
