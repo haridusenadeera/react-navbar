@@ -16,11 +16,9 @@ export default class NavbarItems extends React.Component {
               margin: '7.5px -15px',
               listStyle: 'none',
               paddingLeft: '0',
-              boxSizing: 'border-box',
 
               fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
               fontSize: '14px',
-              color: '#333',
 
               '@media (min-width: 768px)': {
                   float: 'left',
