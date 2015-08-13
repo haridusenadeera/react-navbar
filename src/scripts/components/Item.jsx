@@ -17,7 +17,6 @@ export default class Item extends React.Component {
           list: {
               position: 'relative',
               display: 'block',
-              boxSizing: 'border-box',
               height: '40px',
 
               '@media (min-width: 768px)': {
