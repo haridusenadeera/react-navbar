@@ -95,12 +95,6 @@ const dropdownItems = [
     {href: '#', name: 'FAQ'}
 ];
 
-const dropdownStyle = {
-    marginTop: '0px',
-    borderTopLeftRadius: '0px',
-    borderTopRightRadius: '0px'
-};
-
 const navbarInstance4 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
@@ -111,7 +105,7 @@ const navbarInstance4 = (
                 })
               }
               <NavbarDropdown name="Dropdown">
-                  <DropdownMenu style={dropdownStyle} menuItems={dropdownItems}/>
+                  <DropdownMenu menuItems={dropdownItems}/>
               </NavbarDropdown>
             </NavbarItems>
     </Navbar>
