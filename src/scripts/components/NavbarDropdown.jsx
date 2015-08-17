@@ -10,6 +10,10 @@ export default class NavbarDropdown extends React.Component {
         name: React.PropTypes.string
     }
 
+    state = {
+      open: false
+    }
+
     getStyles = () => {
       return {
           dropdown: {
@@ -33,15 +37,33 @@ export default class NavbarDropdown extends React.Component {
       };
     }
 
+    renderChildren = () => {
+      const {children} = this.props;
+      if (open) {
+        const newChildren = React.Children.map(children, (child) => {
+          return React.cloneElement(child,
+                        {
+                           open: this.state.open
+                       });
+        });
+        return newChildren;
+      }
+      return children;
+    }
+
+    dropdownToggle = () => {
+      this.setState({open: !this.state.open});
+    }
+
     render() {
-      const {children, style} = this.props;
+      const {style, renderChildren} = this.props;
       const defStyle = this.getStyles();
       return (
         <li style={[defStyle.dropdown, style && style]}>
-            <NavLink href="#" name="Dropdown">
+            <NavLink onClick = {this.dropdownToggle} href="#" name="Dropdown">
                 <b style={[defStyle.caret]}></b>
             </NavLink>
-            {children}
+            {this.props.children}
         </li>
       );
     }

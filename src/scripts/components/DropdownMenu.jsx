@@ -6,20 +6,21 @@ export default class DropdownMenu extends React.Component {
     displayName = 'Dropdown menu items'
 
     static propTypes = {
-        menuItems: React.PropTypes.array
+        menuItems: React.PropTypes.array,
+        style:     React.PropTypes.object
     }
 
     getStyles = () => {
-      return {
+      const {open, clicked} = this.props;
+      let styles = {
           menu: {
               position: 'absolute',
               top: '100%',
               left: '0',
               zIndex: '1000',
-              display: 'block',
               float: 'left',
               minWidth: '160px',
-              marginTop: '0px',
+              margin: '0px',
               padding: '5px 0',
               fontSize: '14px',
               textAlign: 'left',
@@ -52,13 +53,20 @@ export default class DropdownMenu extends React.Component {
               }
           }
       };
+      if (open && clicked) {
+        styles.menu.display = 'block';
+      }
+      if (!open && clicked) {
+        styles.menu.display = 'none';
+      }
+      return styles;
     }
 
     render() {
       const defStyle = this.getStyles();
-      const {menuItems} = this.props;
+      const {menuItems, style} = this.props;
       return (
-        <ul style={[defStyle.menu]}>
+        <ul style={[defStyle.menu, style && style]}>
           {
             menuItems.map(item => {
               return (
