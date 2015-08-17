@@ -9,7 +9,8 @@ export default class NavLink extends React.Component {
         key:   React.PropTypes.string,
         href:  React.PropTypes.string,
         name:  React.PropTypes.string,
-        style: React.PropTypes.object
+        style: React.PropTypes.object,
+        onClick: React.PropTypes.func
     }
 
     getStyles = () => {
@@ -44,9 +45,9 @@ export default class NavLink extends React.Component {
 
     render() {
       const defStyle = this.getStyles();
-      const {key, href, name, style, children} = this.props;
+      const {key, href, name, style, onClick, children} = this.props;
       return (
-        <a key ={key} style ={[defStyle.base, style && style]} href={href}>
+        <a key ={key} onClick={onClick} style ={[defStyle.base, style && style]} href={href}>
             {name}{' '}
             {children}
         </a>
