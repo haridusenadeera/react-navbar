@@ -1,5 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
+import NavLink from './NavLink';
 
 @Radium
 export default class NavbarDropdown extends React.Component {
@@ -19,30 +20,6 @@ export default class NavbarDropdown extends React.Component {
                 float: 'left'
             }
           },
-          name: {
-              padding: '10px 15px',
-              lineHeight: '20px',
-              position: 'relative',
-              display: 'block',
-              textDecoration: 'none',
-              color: '#777',
-              backgroundColor: 'transparent',
-
-              ':hover': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
-              },
-
-              ':focus': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
-              },
-
-              '@media (min-width: 768px)': {
-                  paddingTop: '15px',
-                  paddingBottom: '15px'
-              }
-          },
           caret: {
               display: 'inline-block',
               width: '0',
@@ -57,14 +34,13 @@ export default class NavbarDropdown extends React.Component {
     }
 
     render() {
-      const {name, children} = this.props;
+      const {children, style} = this.props;
       const defStyle = this.getStyles();
       return (
-        <li key="dropdown" style={[defStyle.dropdown]}>
-            <a key="name" href="#" style={[defStyle.name]} data-toggle="dropdown">
-                {name}&nbsp;
+        <li style={[defStyle.dropdown, style && style]}>
+            <NavLink href="#" name="Dropdown">
                 <b style={[defStyle.caret]}></b>
-            </a>
+            </NavLink>
             {children}
         </li>
       );
