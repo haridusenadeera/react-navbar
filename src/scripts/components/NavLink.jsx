@@ -44,10 +44,11 @@ export default class NavLink extends React.Component {
 
     render() {
       const defStyle = this.getStyles();
-      const {key, href, name, style} = this.props;
+      const {key, href, name, style, children} = this.props;
       return (
         <a key ={key} style ={[defStyle.base, style && style]} href={href}>
-            {name}
+            {name}{' '}
+            {children}
         </a>
       );
     }
