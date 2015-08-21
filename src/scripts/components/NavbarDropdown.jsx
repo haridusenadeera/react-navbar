@@ -1,6 +1,5 @@
 import React from 'react';
 import Radium from 'radium';
-import NavLink from './NavLink';
 
 @Radium
 export default class NavbarDropdown extends React.Component {
@@ -33,37 +32,64 @@ export default class NavbarDropdown extends React.Component {
               borderTop: '4px dashed',
               borderRight: '4px solid transparent',
               borderLeft: '4px solid transparent'
+          },
+          link: {
+              padding: '10px 15px',
+              lineHeight: '20px',
+              position: 'relative',
+              display: 'block',
+              boxSizing: 'border-box',
+              textDecoration: 'none',
+              backgroundColor: 'transparent',
+              color: '#777',
+
+              ':hover': {
+                  color: '#333',
+                  backgroundColor: 'transparent'
+              },
+
+              ':focus': {
+                  color: '#333',
+                  backgroundColor: 'transparent'
+              },
+
+              '@media (min-width: 768px)': {
+                  paddingTop: '15px',
+                  paddingBottom: '15px'
+              }
           }
       };
     }
 
     renderChildren = () => {
       const {children} = this.props;
-      if (open) {
-        const newChildren = React.Children.map(children, (child) => {
-          return React.cloneElement(child,
-                        {
-                           open: this.state.open
-                       });
-        });
-        return newChildren;
-      }
-      return children;
+
+      const newChildren = React.Children.map(children, (child) => {
+        return React.cloneElement(child,
+            {
+               open: this.state.open
+           });
+      });
+      return newChildren;
     }
 
     dropdownToggle = () => {
-      this.setState({open: !this.state.open});
+      this.setState(
+          {
+              open: this.state.open ? false : true
+          });
     }
 
     render() {
-      const {style, renderChildren} = this.props;
+      const {style, name} = this.props;
       const defStyle = this.getStyles();
       return (
-        <li style={[defStyle.dropdown, style && style]}>
-            <NavLink onClick = {this.dropdownToggle} href="#" name="Dropdown">
+        <li key= "dropdown" style={[defStyle.dropdown, style && style]}>
+            <a key="link" onClick={this.dropdownToggle} href="#" style={[defStyle.link]}>
+                {name}
                 <b style={[defStyle.caret]}></b>
-            </NavLink>
-            {this.props.children}
+            </a>
+            {this.renderChildren}
         </li>
       );
     }

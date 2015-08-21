@@ -7,22 +7,19 @@ export default class DropdownMenu extends React.Component {
 
     static propTypes = {
         menuItems: React.PropTypes.array,
-        style: React.PropTypes.object
-    }
-
-    state = {
-      open: false,
-      clicked: false
+        style:     React.PropTypes.object,
+        open:      React.PropTypes.bool
     }
 
     getStyles = () => {
+      const {open} = this.props;
       let styles = {
           menu: {
               position: 'absolute',
               top: '100%',
               left: '0',
               zIndex: '1000',
-              float: 'left',s
+              float: 'left',
               minWidth: '160px',
               margin: '0px',
               padding: '5px 0',
@@ -58,10 +55,10 @@ export default class DropdownMenu extends React.Component {
           }
       };
 
-      if (this.state.open && this.state.clicked) {
+      if (open) {
         styles.menu.display = 'block';
       }
-      if (!this.state.open && this.state.clicked) {
+      if (!open) {
         styles.menu.display = 'none';
       }
       return styles;
