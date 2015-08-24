@@ -53,8 +53,8 @@ export default class Item extends React.Component {
       const defStyle = this.getStyles();
       const {style, link, title} = this.props;
       return (
-        <li key="list" style={[defStyle.base, style && style]}>
-            <a href={link} style={[defStyle.link]}>{title}</a>
+        <li ref="list" style={[defStyle.base, style && style]}>
+            <a ref="link" href={link} style={[defStyle.link]}>{title}</a>
         </li>
       );
     }
