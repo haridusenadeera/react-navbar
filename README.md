@@ -23,9 +23,9 @@ const navbar = (
     <Navbar>
         <NavbarHeader href="homepage.html" name="Website Name"/>
         <NavbarItem>
-            <Item link={about.html} title={About} />
-            <Item link={contact.html} title={Contact} />
-            <Item link={services.html} title={Services} />
+            <Item link="about.html" title={About} />
+            <Item link="contact.html" title={Contact} />
+            <Item link="services.html" title={Services} />
             <DropDown /> // under development
             <DropDown />
         </NavbarItem>
