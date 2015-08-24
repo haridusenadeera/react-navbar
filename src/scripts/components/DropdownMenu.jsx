@@ -71,8 +71,8 @@ export default class DropdownMenu extends React.Component {
           {
             menuItems.map(item => {
               return (
-                <li ref={menuItems.indexOf(item)}>
-                    <a ref={item.name} style={[defStyle.link]} href={item.href}>{item.name}</a>
+                <li key={menuItems.indexOf(item)}>
+                    <a key={item.name} style={[defStyle.link]} href={item.href}>{item.name}</a>
                 </li>
               );
             })
