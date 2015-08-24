@@ -90,8 +90,8 @@ export default class NavbarDropdown extends React.Component {
       const {style, name} = this.props;
       const defStyle = this.getStyles();
       return (
-        <li key= "dropdown" style={[defStyle.dropdown, style && style]}>
-            <a key="link" onClick={this.dropdownToggle} onBlur={this.outFocus} href="#" style={[defStyle.link]}>
+        <li ref= "dropdown" style={[defStyle.dropdown, style && style]}>
+            <a ref="link" onClick={this.dropdownToggle} onBlur={this.outFocus} href="#" style={[defStyle.link]}>
                 {name}{' '}
                 <b style={[defStyle.caret]}></b>
             </a>

@@ -54,7 +54,6 @@ export default class DropdownMenu extends React.Component {
               }
           }
       };
-
       if (open) {
         styles.menu.display = 'block';
       }
@@ -72,8 +71,8 @@ export default class DropdownMenu extends React.Component {
           {
             menuItems.map(item => {
               return (
-                <li key={menuItems.indexOf(item)}>
-                    <a key={item.name} style={[defStyle.link]} href={item.href}>{item.name}</a>
+                <li ref={menuItems.indexOf(item)}>
+                    <a ref={item.name} style={[defStyle.link]} href={item.href}>{item.name}</a>
                 </li>
               );
             })
