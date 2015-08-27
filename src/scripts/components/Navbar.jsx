@@ -6,8 +6,14 @@ export default class Navbar extends React.Component {
     displayName = 'Navigation bar'
 
     static propTypes = {
+<<<<<<< HEAD
         navStyle: React.PropTypes.object,
         contStyle: React.PropTypes.object
+=======
+        navStyle:  React.PropTypes.object,
+        contStyle: React.PropTypes.object,
+        children:  React.PropTypes.node
+>>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
     }
 
     getStyles = () => {
