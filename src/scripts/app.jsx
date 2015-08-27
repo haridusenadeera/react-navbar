@@ -2,14 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Item from './components/Item';
 import NavbarHeader from './components/NavbarHeader';
-<<<<<<< HEAD
-import NavbarItem from './components/NavbarItem';
-
-=======
 import NavbarItems from './components/NavbarItems';
 import NavbarDropdown from './components/NavbarDropdown';
 import DropdownMenu from './components/DropdownMenu';
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
 
 /** ~~~ Navigation 1 ~~~~ */
 const navitems = [
@@ -24,21 +19,13 @@ const navitems = [
 const navbarInstance = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-<<<<<<< HEAD
-            <NavbarItem>
-=======
             <NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
               {
                 navitems.map(item => {
                   return <Item key={navitems.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-<<<<<<< HEAD
-            </NavbarItem>
-=======
             </NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
     </Navbar>
 );
 
@@ -56,21 +43,13 @@ const navitems2 = [
 const navbarInstance2 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-<<<<<<< HEAD
-            <NavbarItem >
-=======
             <NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
               {
                 navitems2.map(item => {
                   return <Item key={navitems2.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-<<<<<<< HEAD
-            </NavbarItem>
-=======
             </NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
     </Navbar>
 );
 
@@ -87,21 +66,13 @@ const navitems3 = [
 const navbarInstance3 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-<<<<<<< HEAD
-            <NavbarItem >
-=======
             <NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
               {
                 navitems3.map(item => {
                   return <Item key={navitems3.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-<<<<<<< HEAD
-            </NavbarItem>
-=======
             </NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
     </Navbar>
 );
 
@@ -115,8 +86,6 @@ const navitems4 = [
     {link: '#', title: 'FAQ'}
 ];
 
-<<<<<<< HEAD
-=======
 const dropdownItems = [
     {href: '#', name: 'ES2015'},
     {href: '#', name: 'Setup'},
@@ -125,29 +94,20 @@ const dropdownItems = [
     {href: '#', name: 'Try it'},
     {href: '#', name: 'FAQ'}
 ];
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
 
 const navbarInstance4 = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
-<<<<<<< HEAD
-            <NavbarItem >
-=======
             <NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
               {
                 navitems4.map(item => {
                   return <Item key={navitems4.indexOf(item)} link={item.link} title={item.title} />;
                 })
               }
-<<<<<<< HEAD
-            </NavbarItem>
-=======
               <NavbarDropdown name="Dropdown">
                   <DropdownMenu menuItems={dropdownItems}/>
               </NavbarDropdown>
             </NavbarItems>
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
     </Navbar>
 );
 
