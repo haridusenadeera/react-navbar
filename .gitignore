@@ -1,6 +1,6 @@
+# Directories #
+###########
 node_modules/
-<<<<<<< HEAD
-=======
 
 # Compiled source #
 ###################
@@ -39,4 +39,3 @@ node_modules/
 .Trashes
 ehthumbs.db
 Thumbs.db
->>>>>>> 0c8a7ebcf3cf7c96cb23441a0656905eac0e8f08
