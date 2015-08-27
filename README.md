@@ -1,7 +1,7 @@
 
 # ReactJS Navigation Bar
-Bootstrap Navigation bar rebuilt with React components (ES6).
-No boostrap.css file! This navigation bar is built with Radium CSS inline styling. 
+Bootstrap Navigation bar rebuilt with React components (ES6 classes).
+No boostrap.min.css file! This navigation bar is built with Radium CSS inline styling. 
 
 # Install
 Clone the repository. Then install dependencies,
@@ -28,15 +28,6 @@ const dropdownItems = [
 const navbar = (
     <Navbar>
         <NavbarHeader href="homepage.html" name="Website Name"/>
-<<<<<<< HEAD
-        <NavbarItem>
-            <Item link="about.html" title={About} />
-            <Item link="contact.html" title={Contact} />
-            <Item link="services.html" title={Services} />
-            <DropDown /> // under development
-            <DropDown />
-        </NavbarItem>
-=======
         <NavbarItems>
             <Item link="about.html" title="About" />
             <Item link="contact.html" title="Contact" />
@@ -45,7 +36,6 @@ const navbar = (
                   <DropdownMenu menuItems={dropdownItems}/>
             </NavbarDropdown>
         </NavbarItems>
->>>>>>> 4b2ffe415e48edd822e2f37e03c9105f1f33fc8b
     </Navbar>
 );
 
