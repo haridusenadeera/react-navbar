@@ -73,7 +73,9 @@ export default class NavbarDropdown extends React.Component {
       return newChildren;
     }
 
-    dropdownToggle = () => {
+    dropdownToggle = (e) => {
+      e.preventDefault();
+
       this.setState(
           {
               open: this.state.open ? false : true
@@ -91,7 +93,7 @@ export default class NavbarDropdown extends React.Component {
       const defStyle = this.getStyles();
       return (
         <li ref= "dropdown" style={[defStyle.dropdown, style && style]}>
-            <a ref="link" onClick={this.dropdownToggle} onBlur={this.outFocus} href="#" style={[defStyle.link]}>
+            <a ref="link" onClick={this.dropdownToggle} href="#" style={[defStyle.link]}>
                 {name}{' '}
                 <b style={[defStyle.caret]}></b>
             </a>
