@@ -33,7 +33,7 @@ const navbar = (
             <Item link="contact.html" title="Contact" />
             <Item link="services.html" title="Services" />
             <NavbarDropdown name="Features">
-                  <DropdownMenu menuItems={dropdownItems}/>
+                  <DropdownMenu menuItems={dropdownItems}/>  // Under active development
             </NavbarDropdown>
         </NavbarItems>
     </Navbar>
