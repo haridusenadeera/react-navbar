@@ -67,25 +67,20 @@ export default class NavbarDropdown extends React.Component {
       const newChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child,
             {
-               open: this.state.open
-           });
+               open: this.state.open,
+               bodyClick: this.handleBodyClick
+            });
       });
       return newChildren;
     }
 
     dropdownToggle = (e) => {
       e.preventDefault();
-
-      this.setState(
-          {
-              open: this.state.open ? false : true
-          });
+      this.setState({open: this.state.open ? false : true});
     }
 
-    outFocus = () => {
-      this.setState(
-          {open: false}
-        );
+    handleBodyClick = () => {
+      this.setState({open: false});
     }
 
     render() {

@@ -63,11 +63,23 @@ export default class DropdownMenu extends React.Component {
       return styles;
     }
 
+    dropdownClickHandler = (e) => {
+      e.nativeEvent.stopImmediatePropagation();
+    }
+
+    componentDidMount() {
+      document.body.addEventListener('click', this.props.bodyClick);
+    }
+
+    componentWillUnmount() {
+      document.body.removeEventListener('click', this.props.bodyClick);
+    }
+
     render() {
       const defStyle = this.getStyles();
       const {menuItems, style} = this.props;
       return (
-        <ul style={[defStyle.menu, style && style]}>
+        <ul onClick={this.dropdownClickHandler} style={[defStyle.menu, style && style]}>
           {
             menuItems.map(item => {
               return (
