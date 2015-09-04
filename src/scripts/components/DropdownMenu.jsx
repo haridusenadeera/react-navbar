@@ -7,8 +7,9 @@ export default class DropdownMenu extends React.Component {
 
     static propTypes = {
         menuItems: React.PropTypes.array,
-        style:     React.PropTypes.object,
-        open:      React.PropTypes.bool
+        style: React.PropTypes.object,
+        open: React.PropTypes.bool,
+        optionSelect: React.PropTypes.func
     }
 
     getStyles = () => {
@@ -63,23 +64,11 @@ export default class DropdownMenu extends React.Component {
       return styles;
     }
 
-    dropdownClickHandler = (e) => {
-      e.nativeEvent.stopImmediatePropagation();
-    }
-
-    componentDidMount() {
-      document.body.addEventListener('click', this.props.bodyClick);
-    }
-
-    componentWillUnmount() {
-      document.body.removeEventListener('click', this.props.bodyClick);
-    }
-
     render() {
       const defStyle = this.getStyles();
       const {menuItems, style} = this.props;
       return (
-        <ul onClick={this.dropdownClickHandler} style={[defStyle.menu, style && style]}>
+        <ul onClick={this.props.optionSelect} style={[defStyle.menu, style && style]}>
           {
             menuItems.map(item => {
               return (

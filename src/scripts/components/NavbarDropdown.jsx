@@ -68,7 +68,7 @@ export default class NavbarDropdown extends React.Component {
         return React.cloneElement(child,
             {
                open: this.state.open,
-               bodyClick: this.handleBodyClick
+               optionSelect: this.handlePageClick
             });
       });
       return newChildren;
@@ -76,11 +76,20 @@ export default class NavbarDropdown extends React.Component {
 
     dropdownToggle = (e) => {
       e.preventDefault();
-      this.setState({open: this.state.open ? false : true});
+
+      this.setState(
+        {open: true}
+      );
+
+      document.addEventListener('click', this.handlePageClick);
     }
 
-    handleBodyClick = () => {
-      this.setState({open: false});
+    handlePageClick = () => {
+      this.setState(
+        {open: false}
+      );
+
+      document.removeEventListener('click', this.handlePageClick);
     }
 
     render() {
