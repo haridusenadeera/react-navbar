@@ -7,8 +7,8 @@ export default class DropdownMenu extends React.Component {
 
     static propTypes = {
         menuItems: React.PropTypes.array,
-        style: React.PropTypes.object,
-        open: React.PropTypes.bool,
+        style:     React.PropTypes.object,
+        open:      React.PropTypes.bool,
         optionSelect: React.PropTypes.func
     }
 
@@ -66,9 +66,9 @@ export default class DropdownMenu extends React.Component {
 
     render() {
       const defStyle = this.getStyles();
-      const {menuItems, style} = this.props;
+      const {menuItems, style, optionSelect} = this.props;
       return (
-        <ul onClick={this.props.optionSelect} style={[defStyle.menu, style && style]}>
+        <ul onClick={optionSelect} style={[defStyle.menu, style && style]}>
           {
             menuItems.map(item => {
               return (
