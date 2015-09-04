@@ -14,7 +14,7 @@ export default class NavbarItems extends React.Component {
       return {
           base: {
               margin: '7.5px -15px',
-              listStyle: 'none',
+              listStyle: 'outside none none',
               paddingLeft: '0',
 
               fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',

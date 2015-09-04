@@ -29,7 +29,7 @@ export default class NavbarHeader extends React.Component {
             brand: {
                 float: 'left',
                 height: '50px',
-                padding: '15px 15px',
+                padding: '15px',
                 lineHeight: '20px',
                 textDecoration: 'none',
                 backgroundColor: 'transparent',
