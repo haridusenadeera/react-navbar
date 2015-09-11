@@ -107,11 +107,14 @@ const navbarInstance4 = (
               <NavbarDropdown name="Dropdown">
                   <DropdownMenu menuItems={dropdownItems}/>
               </NavbarDropdown>
+              <NavbarDropdown name="Dropdown">
+                  <DropdownMenu menuItems={dropdownItems}/>
+              </NavbarDropdown>
             </NavbarItems>
     </Navbar>
 );
 
-React.render(navbarInstance, document.getElementById('navigation_bar'));
+/*React.render(navbarInstance, document.getElementById('navigation_bar'));
 React.render(navbarInstance2, document.getElementById('navigation_bar2'));
-React.render(navbarInstance3, document.getElementById('navigation_bar3'));
+React.render(navbarInstance3, document.getElementById('navigation_bar3'));*/
 React.render(navbarInstance4, document.getElementById('navigation_bar4'));
