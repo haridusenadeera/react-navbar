@@ -1,6 +1,7 @@
 import React from 'react';
 import Radium from 'radium';
 
+
 @Radium
 export default class NavbarDropdown extends React.Component {
     displayName = 'Navigation bar dropdown button'
@@ -68,28 +69,38 @@ export default class NavbarDropdown extends React.Component {
         return React.cloneElement(child,
             {
                open: this.state.open,
-               optionSelect: this.handlePageClick
+               optionSelect: this.handleOptionSelect
             });
       });
       return newChildren;
     }
 
-    dropdownToggle = (e) => {
-      e.preventDefault();
-
-      this.setState(
-        {open: true}
-      );
-
-      document.addEventListener('click', this.handlePageClick);
+    setDropdownState =(newState) => {
+      this.setState({
+        open: newState
+      });
     }
 
-    handlePageClick = () => {
-      this.setState(
-        {open: false}
-      );
+    handleDocumentClick = () => {
+      this.setDropdownState(false);
+    }
 
-      document.removeEventListener('click', this.handlePageClick);
+    handleDropdownClick = (e) => {
+      e.preventDefault();
+      e.nativeEvent.stopImmediatePropagation();
+      this.setDropdownState(!this.state.open);
+    }
+
+    handleOptionSelect = () => {
+      this.setDropdownState(false);
+    }
+
+    componentDidMount() {
+      document.addEventListener('click', this.handleDocumentClick);
+    }
+
+    componentWillUnmount() {
+      document.removeEventListener('click', this.documentClickHandler);
     }
 
     render() {
@@ -97,7 +108,7 @@ export default class NavbarDropdown extends React.Component {
       const defStyle = this.getStyles();
       return (
         <li ref= "dropdown" style={[defStyle.dropdown, style && style]}>
-            <a ref="link" onClick={this.dropdownToggle} href="#" style={[defStyle.link]}>
+            <a ref="link" onClick={this.handleDropdownClick} href="#" style={[defStyle.link]}>
                 {name}{' '}
                 <b style={[defStyle.caret]}></b>
             </a>
