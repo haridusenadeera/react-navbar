@@ -91,7 +91,7 @@ export default class NavbarDropdown extends React.Component {
       this.setDropdownState(!this.state.open);
     }
 
-    componentDidMount(e) {
+    componentDidMount() {
       document.addEventListener('click', this.handleDocumentClick);
     }
 
