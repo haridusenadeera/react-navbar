@@ -86,7 +86,6 @@ export default class NavbarDropdown extends React.Component {
 
     handleDropdownClick = (e) => {
       e.preventDefault();
-      e.stopPropagation();
       e.nativeEvent.stopImmediatePropagation();
       this.setDropdownState(!this.state.open);
     }
