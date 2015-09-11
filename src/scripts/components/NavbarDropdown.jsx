@@ -1,7 +1,6 @@
 import React from 'react';
 import Radium from 'radium';
 
-
 @Radium
 export default class NavbarDropdown extends React.Component {
     displayName = 'Navigation bar dropdown button'
@@ -87,15 +86,12 @@ export default class NavbarDropdown extends React.Component {
 
     handleDropdownClick = (e) => {
       e.preventDefault();
+      e.stopPropagation();
       e.nativeEvent.stopImmediatePropagation();
       this.setDropdownState(!this.state.open);
     }
 
-    handleOptionSelect = () => {
-      this.setDropdownState(false);
-    }
-
-    componentDidMount() {
+    componentDidMount(e) {
       document.addEventListener('click', this.handleDocumentClick);
     }
 
