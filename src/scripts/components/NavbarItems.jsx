@@ -6,8 +6,12 @@ export default class NavbarItems extends React.Component {
     displayName = 'Navigation list of items'
 
     static propTypes = {
-        style:    React.PropTypes.object,
+        style: React.PropTypes.object,
         children: React.PropTypes.node
+    }
+
+    state = {
+        open: false
     }
 
     getStyles = () => {
@@ -55,13 +59,34 @@ export default class NavbarItems extends React.Component {
       };
     }
 
+    onClick = (activeIndex) => {
+      this.setState({
+            open: !this.state.open,
+            activeIndex: activeIndex
+        });
+    }
+
+    renderChildren = () => {
+      const {children} = this.props;
+      const {open, activeIndex} = this.state;
+      return React.Children.map(children, (child, index) => {
+        return React.cloneElement(child,
+            {
+                open: open,
+                index: index,
+                activeIndex: activeIndex,
+                parentCallBack: this.onClick
+            });
+      });
+    }
+
     render() {
       const defStyle = this.getStyles();
-      const {style, children} = this.props;
+      const {style} = this.props;
       return (
           <div ref ="collapse" style={[defStyle.collapse]}>
               <ul ref= "navitems" style={[defStyle.base, style && style]}>
-                  {children}
+                  {this.renderChildren()}
               </ul>
           </div>
       );
