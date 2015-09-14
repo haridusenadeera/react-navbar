@@ -9,7 +9,8 @@ export default class NavbarDropdown extends React.Component {
         name: React.PropTypes.string,
         open: React.PropTypes.string,
         index: React.PropTypes.number,
-        activeIndex: React.PropTypes.number
+        activeIndex: React.PropTypes.number,
+        parentCallBack: React.PropTypes.func
     }
 
     getStyles = () => {
@@ -61,7 +62,7 @@ export default class NavbarDropdown extends React.Component {
 
     renderChildren = () => {
       const {children, open, index, activeIndex} = this.props;
-      let desiredOpen;
+      let desiredOpen = false;
       // this particular dropdown is clicked
       if (index === activeIndex) {
         desiredOpen = open;
@@ -76,26 +77,15 @@ export default class NavbarDropdown extends React.Component {
       return newChildren;
     }
 
-    setDropdownState =(newState) => {
-      this.setState({
-        open: newState
-      });
-    }
-
     handleDocumentClick = () => {
-      this.setState({
-        open: !this.state.open
-      });
+      const {index, callback} = this.props;
+      callback(index);
     }
 
     handleDropdownClick = (e) => {
-      // e.preventDefault();
-      // e.nativeEvent.stopImmediatePropagation();
+      const {index, callback} = this.props;
       e.stopPropagation();
-      this.setState({
-        open: !this.state.open
-      });
-      // this.setDropdownState(!this.state.open);
+      callback(index);
     }
 
     //componentDidMount() {
