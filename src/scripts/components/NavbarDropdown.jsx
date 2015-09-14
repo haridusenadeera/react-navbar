@@ -6,11 +6,10 @@ export default class NavbarDropdown extends React.Component {
     displayName = 'Navigation bar dropdown button'
 
     static propTypes = {
-        name: React.PropTypes.string
-    }
-
-    state = {
-      open: false
+        name: React.PropTypes.string,
+        open: React.PropTypes.string,
+        index: React.PropTypes.number,
+        activeIndex: React.PropTypes.number
     }
 
     getStyles = () => {
@@ -62,7 +61,7 @@ export default class NavbarDropdown extends React.Component {
     }
 
     renderChildren = () => {
-      const {children} = this.props;
+      const {children, open, index} = this.props;
 
       const newChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child,
@@ -81,22 +80,28 @@ export default class NavbarDropdown extends React.Component {
     }
 
     handleDocumentClick = () => {
-      this.setDropdownState(false);
+      this.setState({
+        open: !this.state.open
+      });
     }
 
     handleDropdownClick = (e) => {
-      e.preventDefault();
-      e.nativeEvent.stopImmediatePropagation();
-      this.setDropdownState(!this.state.open);
+      // e.preventDefault();
+      // e.nativeEvent.stopImmediatePropagation();
+      e.stopPropagation();
+      this.setState({
+        open: !this.state.open
+      });
+      // this.setDropdownState(!this.state.open);
     }
 
-    componentDidMount() {
-      document.addEventListener('click', this.handleDocumentClick);
-    }
+    //componentDidMount() {
+      //document.addEventListener('click', this.handleDocumentClick);
+    //}
 
-    componentWillUnmount() {
-      document.removeEventListener('click', this.documentClickHandler);
-    }
+    //componentWillUnmount() {
+      //document.removeEventListener('click', this.documentClickHandler);
+    //}
 
     render() {
       const {style, name} = this.props;
