@@ -59,23 +59,21 @@ export default class NavbarItems extends React.Component {
       };
     }
 
-    onClick = (activeIndex) => {
+    onClickHandler = (activeIndex) => {
       this.setState({
-            open: !this.state.open,
             activeIndex: activeIndex
         });
     }
 
     renderChildren = () => {
       const {children} = this.props;
-      const {open, activeIndex} = this.state;
+      const {activeIndex} = this.state;
       return React.Children.map(children, (child, index) => {
         return React.cloneElement(child,
             {
-                open: open,
                 index: index,
                 activeIndex: activeIndex,
-                parentCallBack: this.onClick
+                parentCallBack: this.onClickHandler
             });
       });
     }
@@ -85,7 +83,7 @@ export default class NavbarItems extends React.Component {
       const {style} = this.props;
       return (
           <div ref ="collapse" style={[defStyle.collapse]}>
-              <ul ref= "navitems" style={[defStyle.base, style && style]}>
+              <ul ref="navitems" style={[defStyle.base, style && style]}>
                   {this.renderChildren()}
               </ul>
           </div>
