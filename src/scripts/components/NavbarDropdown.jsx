@@ -7,10 +7,13 @@ export default class NavbarDropdown extends React.Component {
 
     static propTypes = {
         name: React.PropTypes.string,
-        open: React.PropTypes.string,
         index: React.PropTypes.number,
         activeIndex: React.PropTypes.number,
         parentCallBack: React.PropTypes.func
+    }
+
+    state = {
+        open: false
     }
 
     getStyles = () => {
@@ -61,31 +64,33 @@ export default class NavbarDropdown extends React.Component {
     }
 
     renderChildren = () => {
-      const {children, open, index, activeIndex} = this.props;
-      let desiredOpen = false;
+      const {children, index, activeIndex} = this.props;
+      let active = false;
       // this particular dropdown is clicked
       if (index === activeIndex) {
-        desiredOpen = open;
+        active = true;
       }
-
       const newChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child,
             {
-               open: desiredOpen
+                open: this.state.open,
+                active: active
             });
       });
       return newChildren;
     }
 
     handleDocumentClick = () => {
-      const {index, callback} = this.props;
-      callback(index);
+      if (this.state.open) {
+        this.setState({open: false});
+      }
     }
 
     handleDropdownClick = (e) => {
-      const {index, callback} = this.props;
-      e.stopPropagation();
-      callback(index);
+      const {index, parentCallBack} = this.props;
+      e.preventDefault();
+      e.nativeEvent.stopImmediatePropagation();
+      parentCallBack(index);
     }
 
     componentDidMount() {
@@ -94,6 +99,15 @@ export default class NavbarDropdown extends React.Component {
 
     componentWillUnmount() {
       document.removeEventListener('click', this.documentClickHandler);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const {index, activeIndex} = nextProps;
+      if (index === activeIndex) {
+        this.setState({open: !this.state.open});
+      } else {
+        this.setState({open: false});
+      }
     }
 
     render() {
