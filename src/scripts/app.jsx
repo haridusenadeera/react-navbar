@@ -106,7 +106,7 @@ const navbarInstance4 = (
               }
               <NavbarDropdown name="Dropdown">
                   <DropdownMenu menuItems={dropdownItems}/>
-              </NavbarDropdown>
+               </NavbarDropdown>
               <NavbarDropdown name="Dropdown">
                   <DropdownMenu menuItems={dropdownItems}/>
               </NavbarDropdown>
