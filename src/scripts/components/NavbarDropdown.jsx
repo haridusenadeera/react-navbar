@@ -17,7 +17,6 @@ export default class NavbarDropdown extends React.Component {
           dropdown: {
             position: 'relative',
             display: 'block',
-
             '@media (min-width: 768px)': {
                 float: 'left'
             }
@@ -61,13 +60,17 @@ export default class NavbarDropdown extends React.Component {
     }
 
     renderChildren = () => {
-      const {children, open, index} = this.props;
+      const {children, open, index, activeIndex} = this.props;
+      let desiredOpen;
+      // this particular dropdown is clicked
+      if (index === activeIndex) {
+        desiredOpen = open;
+      }
 
       const newChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child,
             {
-               open: this.state.open,
-               optionSelect: this.handleOptionSelect
+               open: desiredOpen
             });
       });
       return newChildren;
