@@ -6,11 +6,14 @@ export default class NavbarDropdown extends React.Component {
     displayName = 'Navigation bar dropdown button'
 
     static propTypes = {
-        name: React.PropTypes.string
+        name: React.PropTypes.string,
+        index: React.PropTypes.number,
+        activeIndex: React.PropTypes.number,
+        parentCallBack: React.PropTypes.func
     }
 
     state = {
-      open: false
+        open: false
     }
 
     getStyles = () => {
@@ -18,7 +21,6 @@ export default class NavbarDropdown extends React.Component {
           dropdown: {
             position: 'relative',
             display: 'block',
-
             '@media (min-width: 768px)': {
                 float: 'left'
             }
@@ -62,32 +64,33 @@ export default class NavbarDropdown extends React.Component {
     }
 
     renderChildren = () => {
-      const {children} = this.props;
-
+      const {children, index, activeIndex} = this.props;
+      let active = false;
+      // this particular dropdown is clicked
+      if (index === activeIndex) {
+        active = true;
+      }
       const newChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child,
             {
-               open: this.state.open,
-               optionSelect: this.handleOptionSelect
+                open: this.state.open,
+                active: active
             });
       });
       return newChildren;
     }
 
-    setDropdownState =(newState) => {
-      this.setState({
-        open: newState
-      });
-    }
-
     handleDocumentClick = () => {
-      this.setDropdownState(false);
+      if (this.state.open) {
+        this.setState({open: false});
+      }
     }
 
     handleDropdownClick = (e) => {
+      const {index, parentCallBack} = this.props;
       e.preventDefault();
       e.nativeEvent.stopImmediatePropagation();
-      this.setDropdownState(!this.state.open);
+      parentCallBack(index);
     }
 
     componentDidMount() {
@@ -96,6 +99,15 @@ export default class NavbarDropdown extends React.Component {
 
     componentWillUnmount() {
       document.removeEventListener('click', this.handleDocumentClick);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const {index, activeIndex} = nextProps;
+      if (index === activeIndex) {
+        this.setState({open: !this.state.open});
+      } else {
+        this.setState({open: false});
+      }
     }
 
     render() {
