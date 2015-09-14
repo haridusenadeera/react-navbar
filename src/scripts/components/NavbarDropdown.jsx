@@ -88,13 +88,13 @@ export default class NavbarDropdown extends React.Component {
       callback(index);
     }
 
-    //componentDidMount() {
-      //document.addEventListener('click', this.handleDocumentClick);
-    //}
+    componentDidMount() {
+      document.addEventListener('click', this.handleDocumentClick);
+    }
 
-    //componentWillUnmount() {
-      //document.removeEventListener('click', this.documentClickHandler);
-    //}
+    componentWillUnmount() {
+      document.removeEventListener('click', this.documentClickHandler);
+    }
 
     render() {
       const {style, name} = this.props;
