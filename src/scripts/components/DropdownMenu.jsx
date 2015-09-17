@@ -8,8 +8,7 @@ export default class DropdownMenu extends React.Component {
     static propTypes = {
         menuItems: React.PropTypes.array,
         style: React.PropTypes.object,
-        open: React.PropTypes.bool,
-        optionSelect: React.PropTypes.func
+        open: React.PropTypes.bool
     }
 
     getStyles = () => {
