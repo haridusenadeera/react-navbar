@@ -78,7 +78,6 @@ const navbarInstance3 = (
 
 /** ~~~ Navigation 4 ~~~~ */
 const navitems4 = [
-    {link: '#', title: 'Learn ES2015'},
     {link: '#', title: 'Setup'},
     {link: '#', title: 'Usage'},
     {link: '#', title: 'Advanced'},
