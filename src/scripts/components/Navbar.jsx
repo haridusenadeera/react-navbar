@@ -32,7 +32,16 @@ export default class Navbar extends React.Component {
               paddingLeft: '15px',
               marginRight: 'auto',
               marginLeft: 'auto',
-              boxSizing: 'border-box'
+
+              '@media (min-width: 768px)': {
+                  width: '750px'
+              },
+              '@media (min-width: 992px)': {
+                  width: '970px'
+              },
+              '@media (min-width: 1200px)': {
+                  width: '1170px'
+              }
           }
       };
     }
@@ -40,8 +49,8 @@ export default class Navbar extends React.Component {
       const defStyle = this.getStyles();
       const {navStyle, contStyle, children} = this.props;
       return (
-          <nav style={[defStyle.navbar, navStyle && navStyle]}>
-              <div style={[defStyle.container, contStyle && contStyle]}>
+          <nav ref="navbar" style={[defStyle.navbar, navStyle && navStyle]}>
+              <div ref="container" style={[defStyle.container, contStyle && contStyle]}>
                   {children}
               </div>
           </nav>

@@ -18,7 +18,6 @@ export default class NavbarHeader extends React.Component {
                 marginRight: '-15px',
                 marginLeft: '-15px',
                 boxSizing: 'border-box',
-                display: 'table',
 
                 '@media (min-width: 768px)': {
                     float: 'left',
