@@ -32,7 +32,6 @@ export default class NavbarHeader extends React.Component {
                 lineHeight: '20px',
                 textDecoration: 'none',
                 backgroundColor: 'transparent',
-                boxSizing: 'border-box',
 
                 fontSize: '18px',
                 color: '#777',
