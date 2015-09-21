@@ -20,6 +20,7 @@ export default class NavbarItems extends React.Component {
               margin: '7.5px -15px',
               listStyle: 'outside none none',
               paddingLeft: '0',
+              boxSizing: 'border-box',
 
               fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
               fontSize: '14px',
@@ -30,17 +31,17 @@ export default class NavbarItems extends React.Component {
               }
           },
           collapse: {
-              borderColor: '#E7E7E7',
-              marginRight: '-15px',
-              marginLeft: '-15px',
-              maxHeight: '340px',
               paddingRight: '15px',
               paddingLeft: '15px',
               overflowX: 'visible',
               borderTop: '1px solid transparent',
-              boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.1)',
-              display: 'none',
+              boxShadow: '0px 1px 0px rgba(255, 255, 255, .1) inset',
+              borderColor: '#E7E7E7',
+              marginRight: '-15px',
+              marginLeft: '-15px',
+              maxHeight: '340px',
               boxSizing: 'border-box',
+              display: 'none',
 
               '@media (min-width: 768px)': {
                   marginRight: '0px',

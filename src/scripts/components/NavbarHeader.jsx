@@ -32,6 +32,7 @@ export default class NavbarHeader extends React.Component {
                 lineHeight: '20px',
                 textDecoration: 'none',
                 backgroundColor: 'transparent',
+                boxSizing: 'border-box',
 
                 fontSize: '18px',
                 color: '#777',
@@ -63,6 +64,7 @@ export default class NavbarHeader extends React.Component {
                 borderRadius: '4px',
                 borderColor: '#ddd',
                 cursor: 'pointer',
+                boxSizing: 'border-box',
 
                 ':hover': {
                   backgroundColor: '#ddd'
@@ -84,7 +86,9 @@ export default class NavbarHeader extends React.Component {
                 margin: '-1px',
                 overflow: 'hidden',
                 clip: 'rect(0, 0, 0, 0)',
-                border: '0'
+                borderWidth: '0',
+                borderStyle: 'none',
+                boxSizing: 'border-box'
               },
             iconBar: {
                 display: 'block',

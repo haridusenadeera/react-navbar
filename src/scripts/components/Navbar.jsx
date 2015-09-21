@@ -16,22 +16,20 @@ export default class Navbar extends React.Component {
           navbar: {
               backgroundColor: '#f8f8f8',
               border: '1px solid #e7e7e7',
-              borderRadius: '4px',
+              borderRadius: '0px',
               position: 'relative',
+              top: '0px',
               minHeight: '50px',
               marginBottom: '20px',
               display: 'block',
-              boxSizing: 'border-box',
-
-              '@media (min-width: 768px)': {
-                  borderRadius: '4px'
-              }
+              boxSizing: 'border-box'
           },
           container: {
               paddingRight: '15px',
               paddingLeft: '15px',
               marginRight: 'auto',
               marginLeft: 'auto',
+              boxSizing: 'border-box',
 
               '@media (min-width: 768px)': {
                   width: '750px'
