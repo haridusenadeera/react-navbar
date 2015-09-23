@@ -16,6 +16,7 @@ export default class Item extends React.Component {
           base: {
               position: 'relative',
               display: 'block',
+              boxSizing: 'border-box',
 
               '@media (min-width: 768px)': {
                   float: 'left'

@@ -22,7 +22,7 @@ export default class DropdownMenu extends React.Component {
               float: 'left',
               minWidth: '160px',
               margin: '0px',
-              padding: '5px 0',
+              padding: '5px 0px',
               fontSize: '14px',
               textAlign: 'left',
               listStyle: 'none',
@@ -31,7 +31,8 @@ export default class DropdownMenu extends React.Component {
               border: '1px solid #ccc',
               borderBottomLeftRadius: '4px',
               borderBottomRightRadius: '4px',
-              boxShadow: '0 6px 12px #C9C9C9'
+              boxShadow: '0 6px 12px #C9C9C9',
+              boxSizing: 'border-box'
           },
           link: {
               display: 'block',
@@ -42,6 +43,7 @@ export default class DropdownMenu extends React.Component {
               color: '#333',
               whiteSpace: 'nowrap',
               textDecoration: 'none',
+              boxSizing: 'border-box',
 
               ':hover': {
                   color: '#262626',
