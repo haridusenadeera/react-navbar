@@ -56,6 +56,17 @@ export default class NavbarItems extends React.Component {
                   borderTop: '0px none',
                   boxShadow: 'none'
               }
+          },
+          pseudoBefore: {
+              display: 'table',
+              content: ' ',
+              boxSizing: 'border-box'
+          },
+          pseudoAfter: {
+              clear: 'both',
+              display: 'table',
+              content: ' ',
+              boxSizing: 'border-box'
           }
       };
     }
@@ -84,9 +95,13 @@ export default class NavbarItems extends React.Component {
       const {style} = this.props;
       return (
           <div ref ="collapse" style={[defStyle.collapse]}>
-              <ul ref="navitems" style={[defStyle.base, style && style]}>
-                  {this.renderChildren()}
-              </ul>
+              <span style={[defStyle.pseudoBefore]} />
+                  <ul ref="navitems" style={[defStyle.base, style && style]}>
+                      <span style={[defStyle.pseudoBefore]} />
+                        {this.renderChildren()}
+                      <span style={[defStyle.pseudoAfter]} />
+                  </ul>
+              <span style={[defStyle.pseudoAfter]} />
           </div>
       );
     }

@@ -40,6 +40,17 @@ export default class Navbar extends React.Component {
               '@media (min-width: 1200px)': {
                   width: '1170px'
               }
+          },
+          pseudoBefore: {
+              display: 'table',
+              content: ' ',
+              boxSizing: 'border-box'
+          },
+          pseudoAfter: {
+              clear: 'both',
+              display: 'table',
+              content: ' ',
+              boxSizing: 'border-box'
           }
       };
     }
@@ -48,9 +59,13 @@ export default class Navbar extends React.Component {
       const {navStyle, contStyle, children} = this.props;
       return (
           <nav ref="navbar" style={[defStyle.navbar, navStyle && navStyle]}>
-              <div ref="container" style={[defStyle.container, contStyle && contStyle]}>
-                  {children}
-              </div>
+              <span style={[defStyle.pseudoBefore]} />
+                  <div ref="container" style={[defStyle.container, contStyle && contStyle]}>
+                      <span style={[defStyle.pseudoBefore]} />
+                          {children}
+                      <span style={[defStyle.pseudoAfter]} />
+                  </div>
+              <span style={[defStyle.pseudoAfter]} />
           </nav>
       );
     }
