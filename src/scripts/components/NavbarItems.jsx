@@ -69,12 +69,6 @@ export default class NavbarItems extends React.Component {
               display: 'table',
               content: ' ',
               boxSizing: 'border-box'
-          },
-          test: {
-            overflowY: 'auto',
-            '@media (min-width: 768px)': {
-              overflowY: 'visible'
-            }
           }
       };
     }
