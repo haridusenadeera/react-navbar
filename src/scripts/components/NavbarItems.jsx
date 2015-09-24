@@ -41,7 +41,8 @@ export default class NavbarItems extends React.Component {
               marginLeft: '-15px',
               maxHeight: '340px',
               boxSizing: 'border-box',
-              display: 'none',
+              display: 'block',
+              overflowY: 'auto',
 
               '@media (min-width: 768px)': {
                   marginRight: '0px',
@@ -54,7 +55,8 @@ export default class NavbarItems extends React.Component {
                   overflow: 'visible',
                   width: 'auto',
                   borderTop: '0px none',
-                  boxShadow: 'none'
+                  boxShadow: 'none',
+                  overflowY: 'visible'
               }
           },
           pseudoBefore: {
@@ -67,6 +69,12 @@ export default class NavbarItems extends React.Component {
               display: 'table',
               content: ' ',
               boxSizing: 'border-box'
+          },
+          test: {
+            overflowY: 'auto',
+            '@media (min-width: 768px)': {
+              overflowY: 'visible'
+            }
           }
       };
     }

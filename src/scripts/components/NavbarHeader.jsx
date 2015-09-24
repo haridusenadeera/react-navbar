@@ -95,10 +95,22 @@ export default class NavbarHeader extends React.Component {
                 width: '22px',
                 height: '2px',
                 borderRadius: '1px',
-                backgroundColor: '#888'
+                backgroundColor: '#888',
+                boxSizing: 'border-box'
             },
             burger: {
               marginTop: '4px'
+            },
+            pseudoBefore: {
+                display: 'table',
+                content: ' ',
+                boxSizing: 'border-box'
+            },
+            pseudoAfter: {
+                clear: 'both',
+                display: 'table',
+                content: ' ',
+                boxSizing: 'border-box'
             }
         };
     }
@@ -107,15 +119,17 @@ export default class NavbarHeader extends React.Component {
       const {href, name, headerStyle, brandStyle} = this.props;
       return (
           <div key="header" style={[defStyle.header, headerStyle && headerStyle]}>
-              <button type="button" style={[defStyle.navbarToggle]} >
-                  <span style={[defStyle.srOnly]}>Toggle navigation</span>
-                  <span style={[defStyle.iconBar]}></span>
-                  <span style={[defStyle.iconBar, defStyle.burger]}></span>
-                  <span style={[defStyle.iconBar, defStyle.burger]}></span>
-              </button>
-              <a key="brand" style={[defStyle.brand, brandStyle && brandStyle]} href={href}>
-                  {name}
-              </a>
+              <span style={[defStyle.pseudoBefore]} />
+                  <button type="button" style={[defStyle.navbarToggle]} >
+                      <span style={[defStyle.srOnly]}>Toggle navigation</span>
+                      <span style={[defStyle.iconBar]}></span>
+                      <span style={[defStyle.iconBar, defStyle.burger]}></span>
+                      <span style={[defStyle.iconBar, defStyle.burger]}></span>
+                  </button>
+                  <a key="brand" style={[defStyle.brand, brandStyle && brandStyle]} href={href}>
+                      {name}
+                  </a>
+              <span style={[defStyle.pseudoAfter]} />
           </div>
       );
     }
