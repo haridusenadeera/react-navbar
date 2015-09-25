@@ -15,7 +15,7 @@ export default class NavbarItems extends React.Component {
     }
 
     getStyles = () => {
-      return {
+      let styles = {
           base: {
               margin: '7.5px -15px',
               listStyle: 'outside none none',
@@ -41,8 +41,7 @@ export default class NavbarItems extends React.Component {
               marginLeft: '-15px',
               maxHeight: '340px',
               boxSizing: 'border-box',
-              display: 'block',
-              overflowY: 'auto',
+              display: 'none',
 
               '@media (min-width: 768px)': {
                   marginRight: '0px',
@@ -71,6 +70,11 @@ export default class NavbarItems extends React.Component {
               boxSizing: 'border-box'
           }
       };
+      if (this.props.collapseIn) {
+        styles.collapse.display = 'block';
+        styles.collapse.overflowY = 'auto';
+      }
+      return styles;
     }
 
     onClickHandler = (activeIndex) => {

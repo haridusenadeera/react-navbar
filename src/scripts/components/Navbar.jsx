@@ -11,6 +11,10 @@ export default class Navbar extends React.Component {
         children:  React.PropTypes.node
     }
 
+    state = {
+      collapseIn: false
+    }
+
     getStyles = () => {
       return {
           navbar: {
@@ -54,15 +58,31 @@ export default class Navbar extends React.Component {
           }
       };
     }
+
+    renderChildren = () => {
+      const {children} = this.props;
+      return React.Children.map(children, (child) => {
+        return React.cloneElement(child,
+            {
+              navbarToggle: this.navbarToggle,
+              collapseIn: this.state.collapseIn
+            });
+      });
+    }
+
+    navbarToggle = () => {
+      this.setState({collapseIn: !this.state.collapseIn});
+    }
+
     render() {
       const defStyle = this.getStyles();
-      const {navStyle, contStyle, children} = this.props;
+      const {navStyle, contStyle} = this.props;
       return (
           <nav ref="navbar" style={[defStyle.navbar, navStyle && navStyle]}>
               <span style={[defStyle.pseudoBefore]} />
                   <div ref="container" style={[defStyle.container, contStyle && contStyle]}>
                       <span style={[defStyle.pseudoBefore]} />
-                          {children}
+                          {this.renderChildren()}
                       <span style={[defStyle.pseudoAfter]} />
                   </div>
               <span style={[defStyle.pseudoAfter]} />

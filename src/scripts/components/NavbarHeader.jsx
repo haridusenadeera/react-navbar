@@ -114,13 +114,14 @@ export default class NavbarHeader extends React.Component {
             }
         };
     }
+
     render() {
       const defStyle = this.getStyles();
-      const {href, name, headerStyle, brandStyle} = this.props;
+      const {href, name, headerStyle, brandStyle, navbarToggle} = this.props;
       return (
           <div key="header" style={[defStyle.header, headerStyle && headerStyle]}>
               <span style={[defStyle.pseudoBefore]} />
-                  <button type="button" style={[defStyle.navbarToggle]} >
+                  <button type="button" style={[defStyle.navbarToggle]} onClick= {navbarToggle}>
                       <span style={[defStyle.srOnly]}>Toggle navigation</span>
                       <span style={[defStyle.iconBar]}></span>
                       <span style={[defStyle.iconBar, defStyle.burger]}></span>
