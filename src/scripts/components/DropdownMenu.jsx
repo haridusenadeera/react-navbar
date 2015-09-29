@@ -32,7 +32,17 @@ export default class DropdownMenu extends React.Component {
               borderBottomLeftRadius: '4px',
               borderBottomRightRadius: '4px',
               boxShadow: '0 6px 12px #C9C9C9',
-              boxSizing: 'border-box'
+              boxSizing: 'border-box',
+
+              '@media (max-width: 767px)': {
+                  position: 'static',
+                  float: 'none',
+                  width: 'auto',
+                  marginTop: '0',
+                  backgroundColor: 'transparent',
+                  border: '0',
+                  boxShadow: 'none'
+              }
           },
           link: {
               display: 'block',
@@ -53,6 +63,16 @@ export default class DropdownMenu extends React.Component {
               ':focus': {
                   color: '#262626',
                   backgroundColor: '#f5f5f5'
+              },
+
+              '@media (max-width: 767px)': {
+                  backgroundColor: 'transparent',
+                  color: '#777',
+
+                  ':hover': {
+                      color: '#333',
+                      backgroundColor: 'transparent'
+                  }
               }
           }
       };
