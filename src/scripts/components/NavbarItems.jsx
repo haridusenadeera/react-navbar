@@ -10,10 +10,6 @@ export default class NavbarItems extends React.Component {
         children: React.PropTypes.node
     }
 
-    state = {
-        open: false
-    }
-
     getStyles = () => {
       let styles = {
           base: {
