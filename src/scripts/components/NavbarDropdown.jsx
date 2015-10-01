@@ -17,7 +17,7 @@ export default class NavbarDropdown extends React.Component {
     }
 
     getStyles = () => {
-      return {
+      let styles = {
           dropdown: {
             position: 'relative',
             display: 'block',
@@ -48,13 +48,11 @@ export default class NavbarDropdown extends React.Component {
               color: '#777',
 
               ':hover': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
+                  color: '#333'
               },
 
               ':focus': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
+                  color: '#333'
               },
 
               '@media (min-width: 768px)': {
@@ -63,6 +61,10 @@ export default class NavbarDropdown extends React.Component {
               }
           }
       };
+      if (this.props.index === this.props.activeIndex) {
+        styles.link.backgroundColor = this.state.open ? '#e7e7e7' : 'transparent';
+      }
+      return styles;
     }
 
     renderChildren = () => {
