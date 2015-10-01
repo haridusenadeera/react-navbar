@@ -34,9 +34,10 @@ export default class NavbarItems extends React.Component {
               paddingRight: '15px',
               paddingLeft: '15px',
               overflowX: 'visible',
-              borderTop: '1px solid transparent',
-              boxShadow: '0px 1px 0px rgba(255, 255, 255, .1) inset',
+              borderTopWidth: '1px',
+              borderTopStyle: 'solid',
               borderColor: '#E7E7E7',
+              boxShadow: '0px 1px 0px rgba(255, 255, 255, .1) inset',
               marginRight: '-15px',
               marginLeft: '-15px',
               maxHeight: '340px',
@@ -53,7 +54,8 @@ export default class NavbarItems extends React.Component {
                   display: 'block',
                   overflow: 'visible',
                   width: 'auto',
-                  borderTop: '0px none',
+                  borderTopWidth: '0px',
+                  borderTopStyle: 'none',
                   boxShadow: 'none',
                   overflowY: 'visible'
               }

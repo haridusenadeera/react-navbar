@@ -23,7 +23,10 @@ export default class Item extends React.Component {
               }
           },
           link: {
-              padding: '10px 15px',
+              paddingTop: '10px',
+              paddingBottom: '10px',
+              paddingLeft: '15px',
+              paddingRight: '15px',
               lineHeight: '20px',
               position: 'relative',
               display: 'block',
