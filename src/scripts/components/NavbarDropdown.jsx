@@ -90,6 +90,9 @@ export default class NavbarDropdown extends React.Component {
     handleDocumentClick = () => {
       if (this.state.open) {
         this.setState({open: false});
+
+        // when all the dropdowns are closed, activeIndex is set to -1
+        this.props.parentCallBack(-1);
       }
     }
 
@@ -111,7 +114,14 @@ export default class NavbarDropdown extends React.Component {
     componentWillReceiveProps(nextProps) {
       const {index, activeIndex} = nextProps;
       if (index === activeIndex) {
-        this.setState({open: !this.state.open});
+        if (this.state.open) {
+          this.setState({open: false});
+
+          // when all the dropdowns are closed, activeIndex is set to -1
+          this.props.parentCallBack(-1);
+        }else {
+          this.setState({open: true});
+        }
       } else {
         this.setState({open: false});
       }
