@@ -6,18 +6,22 @@ export default class NavbarDropdown extends React.Component {
     displayName = 'Navigation bar dropdown button'
 
     static propTypes = {
-        name: React.PropTypes.string
+        name: React.PropTypes.string,
+        index: React.PropTypes.number,
+        activeIndex: React.PropTypes.number,
+        parentCallBack: React.PropTypes.func
     }
 
     state = {
-      open: false
+        open: false
     }
 
     getStyles = () => {
-      return {
+      let styles = {
           dropdown: {
             position: 'relative',
             display: 'block',
+            boxSizing: 'border-box',
 
             '@media (min-width: 768px)': {
                 float: 'left'
@@ -34,7 +38,10 @@ export default class NavbarDropdown extends React.Component {
               borderLeft: '4px solid transparent'
           },
           link: {
-              padding: '10px 15px',
+              paddingTop: '10px',
+              paddingBottom: '10px',
+              paddingLeft: '15px',
+              paddingRight: '15px',
               lineHeight: '20px',
               position: 'relative',
               display: 'block',
@@ -44,13 +51,11 @@ export default class NavbarDropdown extends React.Component {
               color: '#777',
 
               ':hover': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
+                  color: '#333'
               },
 
               ':focus': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
+                  color: '#333'
               },
 
               '@media (min-width: 768px)': {
@@ -59,31 +64,67 @@ export default class NavbarDropdown extends React.Component {
               }
           }
       };
+      if (this.props.index === this.props.activeIndex) {
+        styles.link.backgroundColor = this.state.open ? '#e7e7e7' : 'transparent';
+      }
+      return styles;
     }
 
     renderChildren = () => {
-      const {children} = this.props;
-
+      const {children, index, activeIndex} = this.props;
+      let active = false;
+      // this particular dropdown is clicked
+      if (index === activeIndex) {
+        active = true;
+      }
       const newChildren = React.Children.map(children, (child) => {
         return React.cloneElement(child,
             {
-               open: this.state.open
-           });
+                open: this.state.open,
+                active: active
+            });
       });
       return newChildren;
     }
 
-    dropdownToggle = () => {
-      this.setState(
-          {
-              open: this.state.open ? false : true
-          });
+    handleDocumentClick = () => {
+      if (this.state.open) {
+        this.setState({open: false});
+
+        // when all the dropdowns are closed, activeIndex is set to -1
+        this.props.parentCallBack(-1);
+      }
     }
 
-    outFocus = () => {
-      this.setState(
-          {open: false}
-        );
+    handleDropdownClick = (e) => {
+      const {index, parentCallBack} = this.props;
+      e.preventDefault();
+      e.nativeEvent.stopImmediatePropagation();
+      parentCallBack(index);
+    }
+
+    componentDidMount() {
+      document.addEventListener('click', this.handleDocumentClick);
+    }
+
+    componentWillUnmount() {
+      document.removeEventListener('click', this.handleDocumentClick);
+    }
+
+    componentWillReceiveProps(nextProps) {
+      const {index, activeIndex} = nextProps;
+      if (index === activeIndex) {
+        if (this.state.open) {
+          this.setState({open: false});
+
+          // when all the dropdowns are closed, activeIndex is set to -1
+          this.props.parentCallBack(-1);
+        }else {
+          this.setState({open: true});
+        }
+      } else {
+        this.setState({open: false});
+      }
     }
 
     render() {
@@ -91,7 +132,7 @@ export default class NavbarDropdown extends React.Component {
       const defStyle = this.getStyles();
       return (
         <li ref= "dropdown" style={[defStyle.dropdown, style && style]}>
-            <a ref="link" onClick={this.dropdownToggle} onBlur={this.outFocus} href="#" style={[defStyle.link]}>
+            <a ref="link" onClick={this.handleDropdownClick} href="#" style={[defStyle.link]}>
                 {name}{' '}
                 <b style={[defStyle.caret]}></b>
             </a>

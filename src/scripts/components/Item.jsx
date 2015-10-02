@@ -16,13 +16,17 @@ export default class Item extends React.Component {
           base: {
               position: 'relative',
               display: 'block',
+              boxSizing: 'border-box',
 
               '@media (min-width: 768px)': {
                   float: 'left'
               }
           },
           link: {
-              padding: '10px 15px',
+              paddingTop: '10px',
+              paddingBottom: '10px',
+              paddingLeft: '15px',
+              paddingRight: '15px',
               lineHeight: '20px',
               position: 'relative',
               display: 'block',

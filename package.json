@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint src",
     "build": "webpack",
-    "start": "webpack-dev-server --config webpack.development.js --devtool source-map --progress --colors --hot --content-base build"
+    "start": "webpack-dev-server --config webpack.development.js --devtool source-map --progress --colors --hot --content-base build --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
