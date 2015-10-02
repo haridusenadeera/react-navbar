@@ -17,10 +17,12 @@ export default class NavbarDropdown extends React.Component {
     }
 
     getStyles = () => {
-      return {
+      let styles = {
           dropdown: {
             position: 'relative',
             display: 'block',
+            boxSizing: 'border-box',
+
             '@media (min-width: 768px)': {
                 float: 'left'
             }
@@ -36,7 +38,10 @@ export default class NavbarDropdown extends React.Component {
               borderLeft: '4px solid transparent'
           },
           link: {
-              padding: '10px 15px',
+              paddingTop: '10px',
+              paddingBottom: '10px',
+              paddingLeft: '15px',
+              paddingRight: '15px',
               lineHeight: '20px',
               position: 'relative',
               display: 'block',
@@ -46,13 +51,11 @@ export default class NavbarDropdown extends React.Component {
               color: '#777',
 
               ':hover': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
+                  color: '#333'
               },
 
               ':focus': {
-                  color: '#333',
-                  backgroundColor: 'transparent'
+                  color: '#333'
               },
 
               '@media (min-width: 768px)': {
@@ -61,6 +64,10 @@ export default class NavbarDropdown extends React.Component {
               }
           }
       };
+      if (this.props.index === this.props.activeIndex) {
+        styles.link.backgroundColor = this.state.open ? '#e7e7e7' : 'transparent';
+      }
+      return styles;
     }
 
     renderChildren = () => {
@@ -83,6 +90,9 @@ export default class NavbarDropdown extends React.Component {
     handleDocumentClick = () => {
       if (this.state.open) {
         this.setState({open: false});
+
+        // when all the dropdowns are closed, activeIndex is set to -1
+        this.props.parentCallBack(-1);
       }
     }
 
@@ -104,7 +114,14 @@ export default class NavbarDropdown extends React.Component {
     componentWillReceiveProps(nextProps) {
       const {index, activeIndex} = nextProps;
       if (index === activeIndex) {
-        this.setState({open: !this.state.open});
+        if (this.state.open) {
+          this.setState({open: false});
+
+          // when all the dropdowns are closed, activeIndex is set to -1
+          this.props.parentCallBack(-1);
+        }else {
+          this.setState({open: true});
+        }
       } else {
         this.setState({open: false});
       }

@@ -10,16 +10,13 @@ export default class NavbarItems extends React.Component {
         children: React.PropTypes.node
     }
 
-    state = {
-        open: false
-    }
-
     getStyles = () => {
-      return {
+      let styles = {
           base: {
               margin: '7.5px -15px',
               listStyle: 'outside none none',
               paddingLeft: '0',
+              boxSizing: 'border-box',
 
               fontFamily: '"Helvetica Neue",Helvetica,Arial,sans-serif',
               fontSize: '14px',
@@ -30,17 +27,18 @@ export default class NavbarItems extends React.Component {
               }
           },
           collapse: {
-              borderColor: '#E7E7E7',
-              marginRight: '-15px',
-              marginLeft: '-15px',
-              maxHeight: '340px',
               paddingRight: '15px',
               paddingLeft: '15px',
               overflowX: 'visible',
-              borderTop: '1px solid transparent',
-              boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.1)',
-              display: 'none',
+              borderTopWidth: '1px',
+              borderTopStyle: 'solid',
+              borderColor: '#E7E7E7',
+              boxShadow: '0px 1px 0px rgba(255, 255, 255, .1) inset',
+              marginRight: '-15px',
+              marginLeft: '-15px',
+              maxHeight: '340px',
               boxSizing: 'border-box',
+              display: 'none',
 
               '@media (min-width: 768px)': {
                   marginRight: '0px',
@@ -52,11 +50,29 @@ export default class NavbarItems extends React.Component {
                   display: 'block',
                   overflow: 'visible',
                   width: 'auto',
-                  borderTop: '0px none',
-                  boxShadow: 'none'
+                  borderTopWidth: '0px',
+                  borderTopStyle: 'none',
+                  boxShadow: 'none',
+                  overflowY: 'visible'
               }
+          },
+          pseudoBefore: {
+              display: 'table',
+              content: ' ',
+              boxSizing: 'border-box'
+          },
+          pseudoAfter: {
+              clear: 'both',
+              display: 'table',
+              content: ' ',
+              boxSizing: 'border-box'
           }
       };
+      if (this.props.collapseIn) {
+        styles.collapse.display = 'block';
+        styles.collapse.overflowY = 'auto';
+      }
+      return styles;
     }
 
     onClickHandler = (activeIndex) => {
@@ -83,9 +99,13 @@ export default class NavbarItems extends React.Component {
       const {style} = this.props;
       return (
           <div ref ="collapse" style={[defStyle.collapse]}>
-              <ul ref="navitems" style={[defStyle.base, style && style]}>
-                  {this.renderChildren()}
-              </ul>
+              <span style={[defStyle.pseudoBefore]} />
+                  <ul ref="navitems" style={[defStyle.base, style && style]}>
+                      <span style={[defStyle.pseudoBefore]} />
+                        {this.renderChildren()}
+                      <span style={[defStyle.pseudoAfter]} />
+                  </ul>
+              <span style={[defStyle.pseudoAfter]} />
           </div>
       );
     }
