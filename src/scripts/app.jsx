@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Item from './components/Item';
+import NavItem from './components/NavItem';
 import NavbarHeader from './components/NavbarHeader';
 import NavbarItems from './components/NavbarItems';
 import NavbarDropdown from './components/NavbarDropdown';
@@ -29,7 +29,7 @@ const navbarInstance4 = (
         <NavbarItems>
           {
             navitems.map(item => {
-              return <Item key={navitems.indexOf(item)} link={item.link} title={item.title} />;
+              return <NavItem key={navitems.indexOf(item)} link={item.link} title={item.title} />;
             })
           }
           <NavbarDropdown name="Dropdown">

@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 
 @Radium
-export default class Item extends React.Component {
+export default class NavItem extends React.Component {
     displayName = 'Navigation bar item'
 
     static propTypes = {
