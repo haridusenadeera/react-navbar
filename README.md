@@ -13,7 +13,7 @@ No external stylesheets! This navigation bar is built with [Radium](http://proje
 
 ## Tree Structure
 
-![navbartree](https://cloud.githubusercontent.com/assets/12897928/10143922/7c0a56f0-65e0-11e5-85f1-8494fb430868.jpg)
+![navbartree](https://cloud.githubusercontent.com/assets/12897928/10251633/b148ac44-68f7-11e5-9c8a-cc0c72b5ada2.png)
 
 ## Components
 ```js
@@ -38,17 +38,7 @@ const navbar = (
 );
 
 React.render(navbar, document.getElementById('navbar'));
-
 ```
-
-# ToDO
-* - [x] Inline styles
-* - [x] Navbar dropdown
-* - [ ] Responsive navigation bar
-  * - [x] Add navbar-toggle button
-  * - [x] display/hide `<NavbarItems>` on navbar-toggle button onclick
-  * - [ ] navbardropdown in mobile view
-
 # Install
 Clone the repository. Then install dependencies,
 
