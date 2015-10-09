@@ -23,23 +23,21 @@ const dropdownItems = [
     {href: '#', name: 'FAQ'}
 ];
 
-const navbarInstance4 = (
+const navbarInstance = (
     <Navbar>
         <NavbarHeader href="http://www.google.com" name="Babel"/>
         <NavbarItems>
-          {
-            navitems.map(item => {
-              return <NavItem key={navitems.indexOf(item)} link={item.link} title={item.title} />;
-            })
-          }
-          <NavbarDropdown name="Dropdown">
-              <DropdownMenu menuItems={dropdownItems}/>
-           </NavbarDropdown>
-          <NavbarDropdown name="Dropdown">
-              <DropdownMenu menuItems={dropdownItems}/>
-          </NavbarDropdown>
+            {navitems.map(item => {
+                return <NavItem key={navitems.indexOf(item)} link={item.link} title={item.title} />;
+            })}
+            <NavbarDropdown name="Dropdown">
+                <DropdownMenu menuItems={dropdownItems}/>
+            </NavbarDropdown>
+            <NavbarDropdown name="Dropdown">
+                <DropdownMenu menuItems={dropdownItems}/>
+            </NavbarDropdown>
         </NavbarItems>
     </Navbar>
 );
 
-React.render(navbarInstance4, document.getElementById('navigation_bar'));
+React.render(navbarInstance, document.getElementById('navigation_bar'));
