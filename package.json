@@ -1,7 +1,7 @@
 {
-  "name": "reacttest",
+  "name": "react-navbar",
   "version": "1.0.0",
-  "description": "This is a react navigation bar",
+  "description": "React bootstrap navigation bar",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dictyBase/reactTest.git"
+    "url": "git+https://github.com/haridusenadeera/react-navbar.git"
   },
   "author": "Haridu Senadeera",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dictyBase/reactTest/issues"
+    "url": "https://github.com/haridusenadeera/react-navbar/issues"
   },
-  "homepage": "https://github.com/dictyBase/reactTest#readme",
+  "homepage": "https://github.com/haridusenadeera/react-navbar",
   "devDependencies": {
     "babel-core": "^5.6.7",
     "babel-eslint": "^3.1.23",
