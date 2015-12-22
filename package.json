@@ -1,5 +1,5 @@
 {
-  "name": "react-navbar",
+  "name": "react-bootstrap-navbar",
   "version": "1.0.0",
   "description": "React bootstrap navigation bar",
   "main": "src/scripts/index.js",
