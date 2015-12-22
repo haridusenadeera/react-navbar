@@ -2,7 +2,7 @@
   "name": "react-navbar",
   "version": "1.0.0",
   "description": "React bootstrap navigation bar",
-  "main": "index.js",
+  "main": "src/scripts/index.js",
   "scripts": {
     "lint": "eslint src",
     "build": "webpack",
