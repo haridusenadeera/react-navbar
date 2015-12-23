@@ -2,8 +2,9 @@
   "name": "react-bootstrap-navbar",
   "version": "1.0.0",
   "description": "React bootstrap navigation bar",
-  "main": "src/scripts/index.js",
+  "main": "./lib/index.js",
   "scripts": {
+    "prepublish": "node_modules/babel/bin/babel.js src/scripts/ --out-dir lib",
     "lint": "eslint src",
     "build": "webpack",
     "start": "webpack-dev-server --config webpack.development.js --devtool source-map --progress --colors --hot --content-base build --host 0.0.0.0"
@@ -19,14 +20,15 @@
   },
   "homepage": "https://github.com/haridusenadeera/react-navbar",
   "devDependencies": {
+    "babel": "^5.8.34",
     "babel-core": "^5.6.7",
     "babel-eslint": "^3.1.23",
     "babel-loader": "^5.2.0",
     "eslint": "^0.24.1",
+    "eslint-plugin-react": "^2.7.0",
     "node-libs-browser": "^0.5.2",
     "webpack": "^1.9.12",
-    "webpack-dev-server": "^1.9.0",
-    "eslint-plugin-react": "^2.7.0"
+    "webpack-dev-server": "^1.9.0"
   },
   "dependencies": {
     "path-is-absolute": "^1.0.0",
